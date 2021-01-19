@@ -31,6 +31,7 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading">Drugs by # Mentioning Preprints</div>
 			<div class="panel-body">
+				<p>Click on a drug or its bar to display mentions.</p>
 				<div id="drugs_distinct"></div>
 			</div>
 		</div>
@@ -39,6 +40,7 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading">Drugs by Total Mentions</div>
 			<div class="panel-body">
+				<p>Click on a drug or its bar to display mentions.</p>
 				<div id="drugs_total"></div>
 			</div>
 		</div>

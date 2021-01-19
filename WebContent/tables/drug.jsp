@@ -39,6 +39,7 @@ $.getJSON("feeds/drug.jsp?drug=${param.drug}", function(data){
      	columns: [
         	{ data: 'title',
           	  orderable: true,
+          	  width: "40%",
           	  render: function ( data, type, row ) {
           		return '<a href="https://doi.org/'+row.doi+'"><span style="color:#376076">'+row.title+'</span></a>';
                	}
@@ -46,9 +47,7 @@ $.getJSON("feeds/drug.jsp?drug=${param.drug}", function(data){
        		{ data: 'section', visible: true, orderable: true },
         	{ data: 'sentence',
         	  orderable: true,
-        	  render: function ( data, type, row ) {
-        		return he.encode(row.sentence);
-             	}
+       		  allowHTML: true
              }
     	],
     	rowsGroup:  [0,1],	
