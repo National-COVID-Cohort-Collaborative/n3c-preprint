@@ -10,7 +10,7 @@ d3.json("${param.data_page}", function(data) {
 	var barHeight = 20; // height of one bar
 	var barLabelWidth = 10; // space reserved for bar labels
 	var barLabelPadding = 5; // padding between bar and bar labels (left)
-	var gridLabelHeight = 18; // space reserved for gridline labels
+	var gridLabelHeight = 30; // space reserved for gridline labels
 	var gridChartOffset = 3; // space between start of grid and first bar
 	var maxBarWidth = 280; // width of the bar with the max value
 
@@ -49,11 +49,6 @@ d3.json("${param.data_page}", function(data) {
 		// grid line labels
 		var gridContainer = chart.append('g')
 			.attr('transform', 'translate(' + barLabelWidth + ',' + gridLabelHeight + ')');
-		gridContainer.selectAll("text").data(x.ticks(10)).enter().append("text")
-			.attr("x", x)
-			.attr("dy", -3)
-			.attr("text-anchor", "middle")
-			.text(String);
 		// vertical grid lines
 		gridContainer.selectAll("line").data(x.ticks(10)).enter().append("line")
 			.attr("x1", x)
