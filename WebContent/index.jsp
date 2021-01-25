@@ -41,7 +41,7 @@ table.dataTable thead .sorting_asc {
 
 	<div class="container-fluid center-box">
 		<h2 class="header-text">
-			<img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C COVID-19 mexRxiv / bioRxiv Exploration
+			<img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C COVID-19 medRxiv / bioRxiv Exploration
 		</h2>
 		<div style="text-align: center;">
 			This is an initial configuration of an exploration tool for preprints involving COVID-19. All data are drawn from

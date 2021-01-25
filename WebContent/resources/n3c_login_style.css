@@ -1,3 +1,11 @@
+.axis { font: 14px sans-serif; }
+
+.line {
+  fill: none;
+  stroke: #376076;
+  stroke-width: 2px;
+}
+
 .supplemental-question-info{
 	font-size:14px; 
 	font-weight:300;

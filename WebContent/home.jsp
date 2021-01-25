@@ -3,6 +3,16 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 <div class="row">
+	<div class="col-sm-12">
+		<div class="panel panel-primary">
+			<div class="panel-heading">Preprint Counts by Week</div>
+			<div class="panel-body">
+				<div id="line-wrapper"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
 	<div class="col-sm-4">
 		<div class="panel panel-primary">
 			<div class="panel-heading">Summary</div>
@@ -46,6 +56,11 @@
 		</div>
 	</div>
 </div>
+
+<jsp:include page="graph_support/line.jsp">
+	<jsp:param name="data_page" value="feeds/total_count_weekly.jsp" />
+	<jsp:param name="dom_element" value="#line-wrapper" />
+</jsp:include>
 
 <jsp:include page="graph_support/verticalBarChart.jsp">
 	<jsp:param name="data_page" value="feeds/drugs_distinct_count.jsp" />
