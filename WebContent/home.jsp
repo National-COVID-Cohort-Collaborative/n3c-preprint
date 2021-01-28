@@ -48,10 +48,37 @@
 	</div>
 	<div class="col-sm-4">
 		<div class="panel panel-primary">
-			<div class="panel-heading">Drugs by Total Mentions</div>
+			<div class="panel-heading">PubChem Compounds by # Mentioning Preprints</div>
 			<div class="panel-body">
-				<p>Click on a drug or its bar to display mentions.</p>
-				<div id="drugs_total"></div>
+				<p>Click on a compound or its bar to display mentions.</p>
+				<div id="compounds_distinct"></div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">PubChem Genes by # Mentioning Preprints</div>
+			<div class="panel-body">
+				<p>Click on a gene or its bar to display mentions.</p>
+				<div id="genes_distinct"></div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">PubChem Proteins by # Mentioning Preprints</div>
+			<div class="panel-body">
+				<p>Click on a protein or its bar to display mentions.</p>
+				<div id="proteins_distinct"></div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">PubChem Substances by # Mentioning Preprints</div>
+			<div class="panel-body">
+				<p>Click on a substance or its bar to display mentions.</p>
+				<div id="substances_distinct"></div>
 			</div>
 		</div>
 	</div>
@@ -65,9 +92,29 @@
 <jsp:include page="graph_support/verticalBarChart.jsp">
 	<jsp:param name="data_page" value="feeds/drugs_distinct_count.jsp" />
 	<jsp:param name="dom_element" value="#drugs_distinct" />
+	<jsp:param name="entity" value="drug" />
 </jsp:include>
 
 <jsp:include page="graph_support/verticalBarChart.jsp">
-	<jsp:param name="data_page" value="feeds/drugs_total_count.jsp" />
-	<jsp:param name="dom_element" value="#drugs_total" />
+	<jsp:param name="data_page" value="feeds/compounds_distinct_count.jsp" />
+	<jsp:param name="dom_element" value="#compounds_distinct" />
+	<jsp:param name="entity" value="compound" />
+</jsp:include>
+
+<jsp:include page="graph_support/verticalBarChart.jsp">
+	<jsp:param name="data_page" value="feeds/genes_distinct_count.jsp" />
+	<jsp:param name="dom_element" value="#genes_distinct" />
+	<jsp:param name="entity" value="gene" />
+</jsp:include>
+
+<jsp:include page="graph_support/verticalBarChart.jsp">
+	<jsp:param name="data_page" value="feeds/proteins_distinct_count.jsp" />
+	<jsp:param name="dom_element" value="#proteins_distinct" />
+	<jsp:param name="entity" value="protein" />
+</jsp:include>
+
+<jsp:include page="graph_support/verticalBarChart.jsp">
+	<jsp:param name="data_page" value="feeds/substances_distinct_count.jsp" />
+	<jsp:param name="dom_element" value="#substances_distinct" />
+	<jsp:param name="entity" value="substance" />
 </jsp:include>

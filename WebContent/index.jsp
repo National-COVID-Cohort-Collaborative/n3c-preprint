@@ -52,8 +52,11 @@ table.dataTable thead .sorting_asc {
 		<p>&nbsp;</p>
 		<ul class="nav nav-tabs" style="font-size: 16px;">
 			<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-			<li><a data-toggle="tab" href="#drugs">Drugs</a></li>
-			<li><a data-toggle="tab" href="#compounds">Compounds</a></li>
+			<li><a data-toggle="tab" href="#drugs">N3C Drugs</a></li>
+			<li><a data-toggle="tab" href="#compounds">PubChem Compounds</a></li>
+			<li><a data-toggle="tab" href="#genes">PubChem Genes</a></li>
+			<li><a data-toggle="tab" href="#proteins">PubChem Proteins</a></li>
+			<li><a data-toggle="tab" href="#substances">PubChem Substances</a></li>
 		</ul>
 
 		<div class="tab-content">
@@ -67,6 +70,18 @@ table.dataTable thead .sorting_asc {
 
 			<div class="tab-pane fade" id="compounds">
 				<jsp:include page="pubchem/compounds.jsp" flush="true" />
+			</div>
+
+			<div class="tab-pane fade" id="genes">
+				<jsp:include page="pubchem/genes.jsp" flush="true" />
+			</div>
+
+			<div class="tab-pane fade" id="proteins">
+				<jsp:include page="pubchem/proteins.jsp" flush="true" />
+			</div>
+
+			<div class="tab-pane fade" id="substances">
+				<jsp:include page="pubchem/substances.jsp" flush="true" />
 			</div>
 		</div>
 

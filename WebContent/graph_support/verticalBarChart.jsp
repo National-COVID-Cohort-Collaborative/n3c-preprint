@@ -60,7 +60,7 @@ d3.json("${param.data_page}", function(data) {
 		var labelsContainer = chart.append('g')
 			.attr('transform', 'translate(' + (barLabelWidth - barLabelPadding) + ',' + (gridLabelHeight + gridChartOffset) + ')');
 		labelsContainer.selectAll('text').data(data).enter().append('text')
-			.on("click", function(d) { drug_render(d.element); })
+			.on("click", function(d) { ${param.entity}_render(d.element); })
 			.attr('y', yText)
 			.attr('stroke', 'none')
 			.attr('fill', 'black')
@@ -71,7 +71,7 @@ d3.json("${param.data_page}", function(data) {
 		var barsContainer = chart.append('g')
 			.attr('transform', 'translate(' + barLabelWidth + ',' + (gridLabelHeight + gridChartOffset) + ')');
 		barsContainer.selectAll("rect").data(data).enter().append("rect")
-			.on("click", function(d) { drug_render(d.element); })
+			.on("click", function(d) { ${param.entity}_render(d.element); })
 			.attr('y', y)
 			.attr('height', yScale.bandwidth())
 			.attr('width', function(d) { return x(barValue(d)); })
