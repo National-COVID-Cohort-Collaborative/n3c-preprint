@@ -31,7 +31,7 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading">Preprint Counts by Week</div>
 			<div class="panel-body">
-				<div id="line-wrapper"></div>
+				<div id="home-line-wrapper"></div>
 			</div>
 		</div>
 	</div>
@@ -50,7 +50,7 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading">PubChem Compounds by # Mentioning Preprints</div>
 			<div class="panel-body"  style="height:613px; overflow-y:auto; ">
-				<p>Click on a compound or its bar to display mentions.</p>
+				<p>Click on a compound or its bar to display mentions. Scroll to see the full histogram.</p>
 				<div id="compounds_distinct"></div>
 			</div>
 		</div>
@@ -59,7 +59,7 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading">PubChem Genes by # Mentioning Preprints</div>
 			<div class="panel-body"  style="height:613px; overflow-y:auto; ">
-				<p>Click on a gene or its bar to display mentions.</p>
+				<p>Click on a gene or its bar to display mentions. Scroll to see the full histogram.</p>
 				<div id="genes_distinct"></div>
 			</div>
 		</div>
@@ -86,7 +86,7 @@
 
 <jsp:include page="graph_support/multiline.jsp">
 	<jsp:param name="data_page" value="feeds/total_by_source_count_weekly.jsp" />
-	<jsp:param name="dom_element" value="#line-wrapper" />
+	<jsp:param name="dom_element" value="#home-line-wrapper" />
 </jsp:include>
 
 <jsp:include page="graph_support/verticalBarChart.jsp">

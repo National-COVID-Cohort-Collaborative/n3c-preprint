@@ -12,9 +12,11 @@
 .settings/org.eclipse.wst.validation.prefs -text
 WebContent/META-INF/MANIFEST.MF -text
 WebContent/WEB-INF/web.xml -text
+WebContent/drugs/drug_count_by_source.jsp -text
 WebContent/drugs/dummy.jsp -text
 WebContent/drugs/index.jsp -text
 WebContent/feeds/compound.jsp -text
+WebContent/feeds/compound_by_source_count_weekly.jsp -text
 WebContent/feeds/compounds_distinct_count.jsp -text
 WebContent/feeds/drug.jsp -text
 WebContent/feeds/drugs_distinct_count.jsp -text
@@ -48,10 +50,14 @@ WebContent/home.jsp -text
 WebContent/images/n3c_logo.png -text
 WebContent/index.jsp -text
 WebContent/navbar.jsp -text
+WebContent/pubchem/compound_count_by_source.jsp -text
 WebContent/pubchem/compounds.jsp -text
 WebContent/pubchem/compounds_new.jsp -text
+WebContent/pubchem/gene_count_by_source.jsp -text
 WebContent/pubchem/genes.jsp -text
+WebContent/pubchem/protein_count_by_source.jsp -text
 WebContent/pubchem/proteins.jsp -text
+WebContent/pubchem/substance_count_by_source.jsp -text
 WebContent/pubchem/substances.jsp -text
 WebContent/resources/autocomplete.css -text
 WebContent/resources/autocomplete.js -text

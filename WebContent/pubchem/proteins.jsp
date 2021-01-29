@@ -6,8 +6,19 @@
 
 <script type="text/javascript">
 	function protein_render(mode) {
+		var summary = document.getElementById("protein-summary-heading");
+		summary.innerHTML = mode + " Summary";
+		var graph = document.getElementById("protein-graph-heading");
+		graph.innerHTML = mode + " Preprint Counts by Week";
+		var mention = document.getElementById("protein-mention-heading");
+		mention.innerHTML = mode + " Mentions";
 		var footer = document.getElementById("protein-panel-footer");
 		footer.innerHTML = "<a href=\"feeds/protein.jsp?protein="+mode+"\">Export this list as JSON</a>";
+		d3.html("pubchem/protein_count_by_source.jsp?protein="+mode, function(fragment) {
+			var divContainer = document.getElementById("protein-summary-panel");
+			divContainer.innerHTML = "";
+			divContainer.append(fragment);
+		});
 		d3.html("tables/protein.jsp?protein="+mode, function(fragment) {
 			var divContainer = document.getElementById("protein_target_table");
 			divContainer.innerHTML = "";
@@ -15,16 +26,6 @@
 		});
 		d3.select("#protein_mode").property("value", mode);
 		$('.nav-tabs a[href="#proteins"]').tab('show');
-	}
-
-	function intervention_display(mode) {
-		var divContainer = document.getElementById("intervention_trials_header");
-		divContainer.innerHTML = mode+" Trials";
-		d3.html("tables/trials_by_intervention.jsp?mode="+mode, function(fragment) {
-			var divContainer = document.getElementById("intervention_trials");
-			divContainer.innerHTML = "<div id='intervention_detail_table'></div>";
-			divContainer.append(fragment);
-		});
 	}
 
 </script>
@@ -41,13 +42,34 @@
 </form>
 
 <div class="row">
+	<div class="col-sm-3">
+		<div class="panel panel-primary">
+			<div class="panel-heading" id="protein-summary-heading">Summary</div>
+			<div class="panel-body">
+				<div id="protein-summary-panel">
+					<jsp:include page="protein_count_by_source.jsp?protein=nsp3"/>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-9">
+		<div class="panel panel-primary">
+			<div class="panel-heading" id="protein-graph-heading">Preprint Counts by Week</div>
+			<div class="panel-body">
+				<div id="protein-line-wrapper"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
 	<div class="col-sm-12">
 		<div class="panel panel-primary">
-			<div class="panel-heading">Protein Mentions</div>
+			<div class="panel-heading" id="protein-mention-heading">Protein Mentions</div>
 			<div class="panel-body">
 				<div id="protein_target_table">
 					<jsp:include page="../tables/protein.jsp" flush="true">
-						<jsp:param value="${target}" name="drug" />
+						<jsp:param value="${target}" name="protein" />
 					</jsp:include>
 				</div>
 
@@ -58,4 +80,9 @@
 		</div>
 	</div>
 </div>
+
+<jsp:include page="../graph_support/multiline.jsp">
+	<jsp:param name="data_page" value="feeds/total_by_source_count_weekly.jsp" />
+	<jsp:param name="dom_element" value="#protein-line-wrapper" />
+</jsp:include>
 
