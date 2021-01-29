@@ -25,6 +25,7 @@ WebContent/feeds/protein.jsp -text
 WebContent/feeds/proteins_distinct_count.jsp -text
 WebContent/feeds/substance.jsp -text
 WebContent/feeds/substances_distinct_count.jsp -text
+WebContent/feeds/total_by_source_count_weekly.jsp -text
 WebContent/feeds/total_count_weekly.jsp -text
 WebContent/footer.jsp -text
 WebContent/graph_support/bar.jsp -text
@@ -36,6 +37,9 @@ WebContent/graph_support/horizontalBarChart.jsp -text
 WebContent/graph_support/line.html -text
 WebContent/graph_support/line.jsp -text
 WebContent/graph_support/line_test.jsp -text
+WebContent/graph_support/multiline.js -text
+WebContent/graph_support/multiline.jsp -text
+WebContent/graph_support/multiline_test.jsp -text
 WebContent/graph_support/pieChart.jsp -text
 WebContent/graph_support/scatterplot.jsp -text
 WebContent/graph_support/verticalBarChart.jsp -text

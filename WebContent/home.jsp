@@ -9,7 +9,7 @@
 			<div class="panel-body">
 				<div id="home_summary">
 				<sql:query var="elements" dataSource="jdbc/N3CCohort">
-					select description,to_char(last_update, 'YYYY-MM-DD HH:MIam') as last_update ,to_char(count, '999,999') as count from covid.stats where category='preprints' order by count desc;
+					select description,to_char(last_update, 'YYYY-MM-DD HH:MIam') as last_update ,to_char(count, '999,999') as count from covid.stats where category='preprints' order by description;
 				</sql:query>
 				
 				<c:forEach items="${elements.rows}" var="row" varStatus="rowCounter">
@@ -84,8 +84,8 @@
 	</div>
 </div>
 
-<jsp:include page="graph_support/line.jsp">
-	<jsp:param name="data_page" value="feeds/total_count_weekly.jsp" />
+<jsp:include page="graph_support/multiline.jsp">
+	<jsp:param name="data_page" value="feeds/total_by_source_count_weekly.jsp" />
 	<jsp:param name="dom_element" value="#line-wrapper" />
 </jsp:include>
 
