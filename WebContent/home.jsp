@@ -3,17 +3,7 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 <div class="row">
-	<div class="col-sm-12">
-		<div class="panel panel-primary">
-			<div class="panel-heading">Preprint Counts by Week</div>
-			<div class="panel-body">
-				<div id="line-wrapper"></div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="row">
-	<div class="col-sm-4">
+	<div class="col-sm-3">
 		<div class="panel panel-primary">
 			<div class="panel-heading">Summary</div>
 			<div class="panel-body">
@@ -37,6 +27,16 @@
 			</div>
 		</div>
 	</div>
+	<div class="col-sm-9">
+		<div class="panel panel-primary">
+			<div class="panel-heading">Preprint Counts by Week</div>
+			<div class="panel-body">
+				<div id="line-wrapper"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
 	<div class="col-sm-4">
 		<div class="panel panel-primary">
 			<div class="panel-heading">Drugs by # Mentioning Preprints</div>
@@ -46,25 +46,25 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-4">
+	<div class="col-sm-6">
 		<div class="panel panel-primary">
 			<div class="panel-heading">PubChem Compounds by # Mentioning Preprints</div>
-			<div class="panel-body">
+			<div class="panel-body"  style="height:613px; overflow-y:auto; ">
 				<p>Click on a compound or its bar to display mentions.</p>
 				<div id="compounds_distinct"></div>
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-4">
+	<div class="col-sm-6">
 		<div class="panel panel-primary">
 			<div class="panel-heading">PubChem Genes by # Mentioning Preprints</div>
-			<div class="panel-body">
+			<div class="panel-body"  style="height:613px; overflow-y:auto; ">
 				<p>Click on a gene or its bar to display mentions.</p>
 				<div id="genes_distinct"></div>
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-4">
+	<div class="col-sm-3">
 		<div class="panel panel-primary">
 			<div class="panel-heading">PubChem Proteins by # Mentioning Preprints</div>
 			<div class="panel-body">
@@ -73,7 +73,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-4">
+	<div class="col-sm-3">
 		<div class="panel panel-primary">
 			<div class="panel-heading">PubChem Substances by # Mentioning Preprints</div>
 			<div class="panel-body">
