@@ -19,6 +19,12 @@
 			divContainer.innerHTML = "";
 			divContainer.append(fragment);
 		});
+		d3.html("pubchem/protein_plot_by_source.jsp?protein=" + mode,
+				function(fragment) {
+					var divContainer = document.getElementById("protein-panel-body");
+					divContainer.innerHTML = "";
+					divContainer.append(fragment);
+				});
 		d3.html("tables/protein.jsp?protein="+mode, function(fragment) {
 			var divContainer = document.getElementById("protein_target_table");
 			divContainer.innerHTML = "";
@@ -55,8 +61,12 @@
 	<div class="col-sm-9">
 		<div class="panel panel-primary">
 			<div class="panel-heading" id="protein-graph-heading">Preprint Counts by Week</div>
-			<div class="panel-body">
+			<div class="panel-body"  id="protein-panel-body">
 				<div id="protein-line-wrapper"></div>
+				<jsp:include page="../graph_support/multiline.jsp">
+					<jsp:param name="data_page"	value="feeds/protein_by_source_count_weekly.jsp?protein=${target}" />
+					<jsp:param name="dom_element" value="#protein-line-wrapper" />
+				</jsp:include>
 			</div>
 		</div>
 	</div>

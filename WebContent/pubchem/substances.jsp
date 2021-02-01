@@ -19,6 +19,12 @@
 			divContainer.innerHTML = "";
 			divContainer.append(fragment);
 		});
+		d3.html("pubchem/substance_plot_by_source.jsp?substance=" + mode,
+				function(fragment) {
+					var divContainer = document.getElementById("substance-panel-body");
+					divContainer.innerHTML = "";
+					divContainer.append(fragment);
+				});
 		d3.html("tables/substance.jsp?substance="+mode, function(fragment) {
 			var divContainer = document.getElementById("substance_target_table");
 			divContainer.innerHTML = "";
@@ -55,8 +61,12 @@
 	<div class="col-sm-9">
 		<div class="panel panel-primary">
 			<div class="panel-heading" id="substance-graph-heading">Preprint Counts by Week</div>
-			<div class="panel-body">
+			<div class="panel-body"  id="substance-panel-body">
 				<div id="substance-line-wrapper"></div>
+				<jsp:include page="../graph_support/multiline.jsp">
+					<jsp:param name="data_page"	value="feeds/substance_by_source_count_weekly.jsp?substance=${target}" />
+					<jsp:param name="dom_element" value="#substance-line-wrapper" />
+				</jsp:include>
 			</div>
 		</div>
 	</div>

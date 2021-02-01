@@ -19,6 +19,12 @@
 			divContainer.innerHTML = "";
 			divContainer.append(fragment);
 		});
+		d3.html("pubchem/gene_plot_by_source.jsp?gene=" + mode,
+				function(fragment) {
+					var divContainer = document.getElementById("gene-panel-body");
+					divContainer.innerHTML = "";
+					divContainer.append(fragment);
+				});
 		d3.html("tables/gene.jsp?gene="+mode, function(fragment) {
 			var divContainer = document.getElementById("gene_target_table");
 			divContainer.innerHTML = "";
@@ -55,8 +61,12 @@
 	<div class="col-sm-9">
 		<div class="panel panel-primary">
 			<div class="panel-heading" id="gene-graph-heading">Preprint Counts by Week</div>
-			<div class="panel-body">
+			<div class="panel-body"  id="gene-panel-body">
 				<div id="gene-line-wrapper"></div>
+				<jsp:include page="../graph_support/multiline.jsp">
+					<jsp:param name="data_page"	value="feeds/gene_by_source_count_weekly.jsp?gene=${target}" />
+					<jsp:param name="dom_element" value="#gene-line-wrapper" />
+				</jsp:include>
 			</div>
 		</div>
 	</div>
