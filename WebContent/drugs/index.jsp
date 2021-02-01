@@ -18,6 +18,12 @@
 			divContainer.innerHTML = "";
 			divContainer.append(fragment);
 		});
+		d3.html("drugs/drug_plot_by_source.jsp?drug=" + mode,
+				function(fragment) {
+					var divContainer = document.getElementById("drug-panel-body");
+					divContainer.innerHTML = "";
+					divContainer.append(fragment);
+				});
 		d3.html("tables/drug.jsp?drug="+mode, function(fragment) {
 			var divContainer = document.getElementById("drug_target_table");
 			divContainer.innerHTML = "";
@@ -54,8 +60,12 @@
 	<div class="col-sm-9">
 		<div class="panel panel-primary">
 			<div class="panel-heading" id="drug-graph-heading">Preprint Counts by Week</div>
-			<div class="panel-body">
+			<div class="panel-body" id="drug-panel-body">
 				<div id="drug-line-wrapper"></div>
+				<jsp:include page="../graph_support/multiline.jsp">
+					<jsp:param name="data_page"	value="feeds/drug_by_source_count_weekly.jsp?drug=${target}" />
+					<jsp:param name="dom_element" value="#drug-line-wrapper" />
+				</jsp:include>
 			</div>
 		</div>
 	</div>
@@ -79,9 +89,3 @@
 		</div>
 	</div>
 </div>
-
-<jsp:include page="../graph_support/multiline.jsp">
-	<jsp:param name="data_page" value="feeds/total_by_source_count_weekly.jsp" />
-	<jsp:param name="dom_element" value="#drug-line-wrapper" />
-</jsp:include>
-

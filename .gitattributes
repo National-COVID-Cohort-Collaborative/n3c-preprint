@@ -13,6 +13,7 @@
 WebContent/META-INF/MANIFEST.MF -text
 WebContent/WEB-INF/web.xml -text
 WebContent/drugs/drug_count_by_source.jsp -text
+WebContent/drugs/drug_plot_by_source.jsp -text
 WebContent/drugs/dummy.jsp -text
 WebContent/drugs/index.jsp -text
 WebContent/feeds/compound.jsp -text
@@ -20,6 +21,7 @@ WebContent/feeds/compound_by_source_count_weekly.jsp -text
 WebContent/feeds/compound_by_source_count_weekly_full.jsp -text
 WebContent/feeds/compounds_distinct_count.jsp -text
 WebContent/feeds/drug.jsp -text
+WebContent/feeds/drug_by_source_count_weekly.jsp -text
 WebContent/feeds/drugs_distinct_count.jsp -text
 WebContent/feeds/drugs_total_count.jsp -text
 WebContent/feeds/gene.jsp -text
@@ -32,6 +34,8 @@ WebContent/feeds/substance.jsp -text
 WebContent/feeds/substance_by_source_count_weekly.jsp -text
 WebContent/feeds/substances_distinct_count.jsp -text
 WebContent/feeds/total_by_source_count_weekly.jsp -text
+WebContent/feeds/total_by_source_count_weekly_int.jsp -text
+WebContent/feeds/total_by_source_count_weekly_int2.jsp -text
 WebContent/feeds/total_count_weekly.jsp -text
 WebContent/footer.jsp -text
 WebContent/graph_support/bar.jsp -text
@@ -49,6 +53,9 @@ WebContent/graph_support/multiline_test.jsp -text
 WebContent/graph_support/pieChart.jsp -text
 WebContent/graph_support/scatterplot.jsp -text
 WebContent/graph_support/verticalBarChart.jsp -text
+WebContent/graph_support/violinPlot.jsp -text
+WebContent/graph_support/violinPlot2.jsp -text
+WebContent/graph_support/violin_test.jsp -text
 WebContent/head.jsp -text
 WebContent/home.jsp -text
 WebContent/images/n3c_logo.png -text
