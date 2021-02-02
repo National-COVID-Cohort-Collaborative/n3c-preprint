@@ -81,7 +81,7 @@ d3.json("${param.data_page}", function(data) {
 		            .x0(function(d){ return(xNum(-d.length)) } )
 		            .x1(function(d){ return(xNum(d.length)) } )
 		            .y(function(d){ return(y(d.x0)) } )
-		            .curve(d3.curveStep)    // This makes the line smoother to give the violin appearance. Try d3.curveStep to see the difference curveCatmullRom
+		            .curve(d3.curveCatmullRom)    // This makes the line smoother to give the violin appearance. Try d3.curveStep to see the difference curveCatmullRom
 		        )
 	}
 });

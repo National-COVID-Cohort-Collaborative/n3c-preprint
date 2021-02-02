@@ -36,7 +36,7 @@
 		</div>
 	</div>
 <jsp:include page="violinPlot2.jsp">
-	<jsp:param name="data_page" value="../feeds/total_by_source_count_weekly_int2.jsp?site=medRxiv" />
+	<jsp:param name="data_page" value="../feeds/total_by_source_count_weekly_int.jsp?site=medRxiv" />
 	<jsp:param name="dom_element" value="#violin-wrapper" />
 </jsp:include>
 	

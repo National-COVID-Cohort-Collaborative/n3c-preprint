@@ -38,7 +38,7 @@ d3.json("${param.data_page}", function(data) {
 		var yScale = d3.scaleBand().domain(d3.range(0, data.length)).range([data.length * barHeight, 0]);
 		var y = function(d, i) { return yScale(i); };
 		var yText = function(d, i) { return y(d, i) + yScale.bandwidth() / 2; };
-		var x = d3.scaleLinear().domain([0, d3.max(data, barValue)]).range([0, maxBarWidth]);
+		var x = d3.scaleLinear().domain([d3.min(data, barValue), d3.max(data, barValue)]).range([0, maxBarWidth]);
 
 		// svg container element
 		var chart = d3.select("${param.dom_element}").append("svg")
@@ -75,7 +75,7 @@ d3.json("${param.data_page}", function(data) {
 			.on("click", function(d) { ${param.entity}_render(d.week); })
 			.attr('y', y)
 			.attr('height', yScale.bandwidth())
-			.attr('width', function(d) { return x(barValue(d)); })
+			.attr('width', function(d) { return x(barValue(d)/2); })
 			.attr('stroke', 'white')
 			.attr('fill', '#376076');
 		// start line
