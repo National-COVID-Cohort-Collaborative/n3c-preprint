@@ -8,25 +8,22 @@ d3.json("${param.data_page}", function(data) {
 	var barValue = function(d) { return d.count; };
 
 	var valueLabelWidth = 50; // space reserved for value labels (right)
-	var barHeight = 20; // height of one bar
-	var barLabelWidth = 10; // space reserved for bar labels
+	var barHeight = 10; // height of one bar
+	var barLabelWidth = 20; // space reserved for bar labels
 	var barLabelPadding = 5; // padding between bar and bar labels (left)
 	var gridLabelHeight = 30; // space reserved for gridline labels
 	var gridChartOffset = 3; // space between start of grid and first bar
 	var maxBarWidth = 280; // width of the bar with the max value
 
-	data.forEach(function(node) {
-		barLabelWidth = Math.max(barLabelWidth,node.week.length * 8);
-	    //console.log(node.week + "  " + node.week.length*7. );
-	});
-	
 	var myObserver = new ResizeObserver(entries => {
 		entries.forEach(entry => {
 			var newWidth = Math.floor(entry.contentRect.width);
+			var newHeight = Math.floor(entry.contentRect.width);
 			if (newWidth > 0) {
 				d3.select("${param.dom_element}").select("svg").remove();
 				//console.log('${param.dom_element} width '+newWidth);
 				maxBarWidth = newWidth - barLabelWidth - barLabelPadding - valueLabelWidth;
+				barHeight =  newHeight/(data.length*1.5);
 				draw();
 			}
 		});
@@ -38,7 +35,7 @@ d3.json("${param.data_page}", function(data) {
 	function draw() {
 
 		// scales
-		var yScale = d3.scaleBand().domain(d3.range(0, data.length)).range([0, data.length * barHeight]);
+		var yScale = d3.scaleBand().domain(d3.range(0, data.length)).range([data.length * barHeight, 0]);
 		var y = function(d, i) { return yScale(i); };
 		var yText = function(d, i) { return y(d, i) + yScale.bandwidth() / 2; };
 		var x = d3.scaleLinear().domain([0, d3.max(data, barValue)]).range([0, maxBarWidth]);
@@ -71,23 +68,16 @@ d3.json("${param.data_page}", function(data) {
 		// bars
 		var barsContainer = chart.append('g')
 			.attr('transform', 'translate(' + barLabelWidth + ',' + (gridLabelHeight + gridChartOffset) + ')');
-		barsContainer.selectAll("rect").data(data).enter().append("rect")
+		barsContainer.selectAll("rect").data(data).enter()
+				    .append("g")
+		      .attr("transform", function(d){ return("translate(" + x(150) +" ,0)") } ) // Translation on the right to be at the group position
+			.append("rect")
 			.on("click", function(d) { ${param.entity}_render(d.week); })
 			.attr('y', y)
 			.attr('height', yScale.bandwidth())
 			.attr('width', function(d) { return x(barValue(d)); })
 			.attr('stroke', 'white')
 			.attr('fill', '#376076');
-		// bar value labels
-		barsContainer.selectAll("text").data(data).enter().append("text")
-			.attr("x", function(d) { return x(barValue(d)); })
-			.attr("y", yText)
-			.attr("dx", 3) // padding-left
-			.attr("dy", ".35em") // vertical-align: middle
-			.attr("text-anchor", "start") // text-align: right
-			.attr("fill", "black")
-			.attr("stroke", "none")
-			.text(function(d) { return barValue(d); });
 		// start line
 		barsContainer.append("line")
 			.attr("y1", -gridChartOffset)
