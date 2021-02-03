@@ -9,7 +9,7 @@ d3.json("${param.data_page}", function(data) {
 	var margin = {
 		top: 10,
 		right: 10,
-		bottom: 24,
+		bottom: 40,
 		left: 10,
 		middle: 28
 	};
@@ -99,6 +99,32 @@ d3.json("${param.data_page}", function(data) {
 			// REVERSE THE X-AXIS SCALE ON THE LEFT SIDE BY REVERSING THE RANGE
 			.scale(xScale.copy().range([pointA, 0]))
 			.ticks(4);
+		
+		svg.append("text")
+        .attr("transform", "translate(" + (w * .25) + " ," + 0 + ")")
+        .style("text-anchor", "middle")
+        .text("${param.left_header}");
+
+		svg.append("text")
+        .attr("transform", "translate(" + (w * .75) + " ," + 0 + ")")
+        .style("text-anchor", "middle")
+        .text("${param.right_header}");
+
+		svg.append("text")
+        .attr("transform", "translate(" + (w * .25) + " ," + (h + 30) + ")")
+        .style("text-anchor", "middle")
+        .text("${param.left_label}");
+
+		svg.append("text")
+        .attr("transform", "translate(" + (w / 2) + " ," + (h + 30) + ")")
+        .style("text-anchor", "middle")
+        .text("${param.middle_label}");
+
+		svg.append("text")
+        .attr("transform", "translate(" + (w * .75) + " ," + (h + 30) + ")")
+        .style("text-anchor", "middle")
+        .text("${param.right_label}");
+
 		
 		// MAKE GROUPS FOR EACH SIDE OF CHART
 		// scale(-1,1) is used to reverse the left side so the bars grow left instead of right

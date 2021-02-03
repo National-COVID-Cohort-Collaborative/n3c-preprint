@@ -66,6 +66,11 @@
 <jsp:include page="pyramid.jsp">
 	<jsp:param name="data_page" value="../feeds/total_by_source_count_weekly_int.jsp" />
 	<jsp:param name="dom_element" value="#pyramid-wrapper" />
+	<jsp:param name="left_header" value="bioRxiv" />
+	<jsp:param name="right_header" value="medRxiv" />
+	<jsp:param name="left_label" value="# of preprints" />
+	<jsp:param name="middle_label" value="Week" />
+	<jsp:param name="right_label" value="# of preprints" />
 </jsp:include>
 	
 </body>
