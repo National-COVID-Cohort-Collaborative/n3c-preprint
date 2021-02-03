@@ -23,6 +23,10 @@
 
 <style> /* set the CSS */
 
+/* svg { */
+/*   border: 1px solid #ccc; */
+/* } */
+
 .axis line,
 .axis path {
   shape-rendering: crispEdges;
@@ -35,7 +39,7 @@
 
 
 .bar {
-  fill-opacity: 0.5;
+  fill-opacity: 0.75;
 }
 .bar.left {
   fill: steelblue;
