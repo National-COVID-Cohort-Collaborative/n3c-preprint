@@ -51,6 +51,8 @@ WebContent/graph_support/multiline.js -text
 WebContent/graph_support/multiline.jsp -text
 WebContent/graph_support/multiline_test.jsp -text
 WebContent/graph_support/pieChart.jsp -text
+WebContent/graph_support/pyramid.jsp -text
+WebContent/graph_support/pyramid_test.jsp -text
 WebContent/graph_support/scatterplot.jsp -text
 WebContent/graph_support/verticalBarChart.jsp -text
 WebContent/graph_support/violinPlot.jsp -text
