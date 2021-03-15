@@ -52,6 +52,7 @@ table.dataTable thead .sorting_asc {
 		<p>&nbsp;</p>
 		<ul class="nav nav-tabs" style="font-size: 16px;">
 			<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+			<li><a data-toggle="tab" href="#ncats_drugs">NCATS Drugs of Interest</a></li>
 			<li><a data-toggle="tab" href="#drugs">N3C Drugs</a></li>
 			<li><a data-toggle="tab" href="#compounds">PubChem Compounds</a></li>
 			<li><a data-toggle="tab" href="#genes">PubChem Genes</a></li>
@@ -64,6 +65,10 @@ table.dataTable thead .sorting_asc {
 				<jsp:include page="home.jsp" flush="true" />
 			</div>
 			
+			<div class="tab-pane fade" id="ncats_drugs">
+				<jsp:include page="ncats_drugs/index.jsp" flush="true" />
+			</div>
+
 			<div class="tab-pane fade" id="drugs">
 				<jsp:include page="drugs/index.jsp" flush="true" />
 			</div>

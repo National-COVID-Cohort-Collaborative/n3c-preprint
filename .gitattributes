@@ -27,6 +27,9 @@ WebContent/feeds/drugs_total_count.jsp -text
 WebContent/feeds/gene.jsp -text
 WebContent/feeds/gene_by_source_count_weekly.jsp -text
 WebContent/feeds/genes_distinct_count.jsp -text
+WebContent/feeds/ncats_drug.jsp -text
+WebContent/feeds/ncats_drug_by_source_count_weekly.jsp -text
+WebContent/feeds/ncats_drugs_distinct_count.jsp -text
 WebContent/feeds/protein.jsp -text
 WebContent/feeds/protein_by_source_count_weekly.jsp -text
 WebContent/feeds/proteins_distinct_count.jsp -text
@@ -63,6 +66,9 @@ WebContent/home.jsp -text
 WebContent/images/n3c_logo.png -text
 WebContent/index.jsp -text
 WebContent/navbar.jsp -text
+WebContent/ncats_drugs/index.jsp -text
+WebContent/ncats_drugs/ncats_drug_count_by_source.jsp -text
+WebContent/ncats_drugs/ncats_drug_plot_by_source.jsp -text
 WebContent/pubchem/compound_count_by_source.jsp -text
 WebContent/pubchem/compound_plot_by_source.jsp -text
 WebContent/pubchem/compounds.jsp -text
@@ -88,6 +94,7 @@ WebContent/resources/n3c_login_style.css -text
 WebContent/tables/compound.jsp -text
 WebContent/tables/drug.jsp -text
 WebContent/tables/gene.jsp -text
+WebContent/tables/ncats_drug.jsp -text
 WebContent/tables/protein.jsp -text
 WebContent/tables/substance.jsp -text
 /pom.xml -text
