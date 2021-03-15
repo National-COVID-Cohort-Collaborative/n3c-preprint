@@ -51,7 +51,7 @@ $.getJSON("feeds/ncats_drug.jsp?drug=${param.drug}", function(data){
        		  allowHTML: true
              }
     	],
-    	rowsGroup:  [1,2],	
+    	rowsGroup:  [0,1,2],	
     initComplete: function () {
         this.api().columns().every( function () {
             var column = this;
