@@ -36,7 +36,7 @@
 	</div>
 	<div class="col-sm-9">
 		<div class="panel panel-primary">
-			<div class="panel-heading">Preprint Counts by Week</div>
+			<div class="panel-heading">Publication Counts by Week</div>
 			<div class="panel-body">
 				<div id="home-line-wrapper"></div>
 			</div>
