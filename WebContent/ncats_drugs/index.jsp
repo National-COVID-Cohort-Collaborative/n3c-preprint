@@ -52,7 +52,7 @@
 			<div class="panel-heading" id="ncats-drug-summary-heading">Summary</div>
 			<div class="panel-body">
 				<div id="ncats-drug-summary-panel">
-					<jsp:include page="ncats_drug_count_by_source.jsp?drug=Remdesivir"/>
+					<jsp:include page="ncats_drug_count_by_source.jsp?drug=${target}"/>
 				</div>
 			</div>
 		</div>

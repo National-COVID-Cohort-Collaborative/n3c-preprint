@@ -2,7 +2,7 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
 <sql:query var="elements" dataSource="jdbc/N3CCohort">
-	select medication as drug,count(distinct doi||' '||pmcid||' '||pmid) from covid.sentence group by 1 order by 2 desc;
+	select medication as drug,count(distinct doi||' '||pmcid||' '||pmid) from covid_ncats.sentence group by 1 order by 2 desc;
 </sql:query>
 
 [
