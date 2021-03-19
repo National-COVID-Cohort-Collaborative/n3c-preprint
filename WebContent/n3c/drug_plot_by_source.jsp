@@ -4,6 +4,6 @@
 <div id="drug-line-wrapper">
 </div>
 <jsp:include page="../graph_support/multiline.jsp">
-	<jsp:param name="data_page"	value="feeds/drug_by_source_count_weekly.jsp?drug=${param.drug}" />
+	<jsp:param name="data_page"	value="feeds/n3c_drug_by_source_count_weekly.jsp?drug=${param.drug}" />
 	<jsp:param name="dom_element" value="#drug-line-wrapper" />
 </jsp:include>

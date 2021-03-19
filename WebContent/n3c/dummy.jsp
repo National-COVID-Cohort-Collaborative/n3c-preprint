@@ -9,7 +9,7 @@
 			<div class="panel-heading">Drug Mentions</div>
 			<div class="panel-body">
 				<div id="drug_target_table">
-					<jsp:include page="../tables/drug.jsp" flush="true">
+					<jsp:include page="../tables/n3c_drug.jsp" flush="true">
 						<jsp:param value="Lopinavir" name="drug" />
 					</jsp:include>
 				</div>

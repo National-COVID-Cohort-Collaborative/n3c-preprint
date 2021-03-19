@@ -12,10 +12,6 @@
 .settings/org.eclipse.wst.validation.prefs -text
 WebContent/META-INF/MANIFEST.MF -text
 WebContent/WEB-INF/web.xml -text
-WebContent/drugs/drug_count_by_source.jsp -text
-WebContent/drugs/drug_plot_by_source.jsp -text
-WebContent/drugs/dummy.jsp -text
-WebContent/drugs/index.jsp -text
 WebContent/feeds/compound.jsp -text
 WebContent/feeds/compound_by_source_count_weekly.jsp -text
 WebContent/feeds/compound_by_source_count_weekly_full.jsp -text
@@ -65,6 +61,10 @@ WebContent/head.jsp -text
 WebContent/home.jsp -text
 WebContent/images/n3c_logo.png -text
 WebContent/index.jsp -text
+WebContent/n3c/drug_count_by_source.jsp -text
+WebContent/n3c/drug_plot_by_source.jsp -text
+WebContent/n3c/dummy.jsp -text
+WebContent/n3c/index.jsp -text
 WebContent/navbar.jsp -text
 WebContent/ncats_drugs/index.jsp -text
 WebContent/ncats_drugs/ncats_drug_count_by_source.jsp -text

@@ -12,19 +12,19 @@
 		var mention = document.getElementById("drug-mention-heading");
 		mention.innerHTML = mode + " Mentions";
 		var footer = document.getElementById("drug-panel-footer");
-		footer.innerHTML = "<a href=\"feeds/drug.jsp?drug="+mode+"\">Export this list as JSON</a>";
-		d3.html("drugs/drug_count_by_source.jsp?drug="+mode, function(fragment) {
+		footer.innerHTML = "<a href=\"feeds/n3c_drug.jsp?drug="+mode+"\">Export this list as JSON</a>";
+		d3.html("n3c/drug_count_by_source.jsp?drug="+mode, function(fragment) {
 			var divContainer = document.getElementById("drug-summary-panel");
 			divContainer.innerHTML = "";
 			divContainer.append(fragment);
 		});
-		d3.html("drugs/drug_plot_by_source.jsp?drug=" + mode,
+		d3.html("n3c/drug_plot_by_source.jsp?drug=" + mode,
 				function(fragment) {
 					var divContainer = document.getElementById("drug-panel-body");
 					divContainer.innerHTML = "";
 					divContainer.append(fragment);
 				});
-		d3.html("tables/drug.jsp?drug="+mode, function(fragment) {
+		d3.html("tables/n3c_drug.jsp?drug="+mode, function(fragment) {
 			var divContainer = document.getElementById("drug_target_table");
 			divContainer.innerHTML = "";
 			divContainer.append(fragment);
@@ -63,7 +63,7 @@
 			<div class="panel-body" id="drug-panel-body">
 				<div id="drug-line-wrapper"></div>
 				<jsp:include page="../graph_support/multiline.jsp">
-					<jsp:param name="data_page"	value="feeds/drug_by_source_count_weekly.jsp?drug=${target}" />
+					<jsp:param name="data_page"	value="feeds/n3c_drug_by_source_count_weekly.jsp?drug=${target}" />
 					<jsp:param name="dom_element" value="#drug-line-wrapper" />
 				</jsp:include>
 			</div>
@@ -77,7 +77,7 @@
 			<div class="panel-heading" id="drug-mention-heading">Drug Mentions</div>
 			<div class="panel-body">
 				<div id="drug_target_table">
-					<jsp:include page="../tables/drug.jsp" flush="true">
+					<jsp:include page="../tables/n3c_drug.jsp" flush="true">
 						<jsp:param value="${target}" name="drug" />
 					</jsp:include>
 				</div>
@@ -85,7 +85,7 @@
 				<div id="drug_table" style="overflow: scroll;">&nbsp;</div>
 				<div id="op_table" style="overflow: scroll;">&nbsp;</div>
 			</div>
-			<div class="panel-footer" id="drug-panel-footer"><a href="feeds/drug.jsp?drug=${target}">Export this list as JSON</a></div>
+			<div class="panel-footer" id="drug-panel-footer"><a href="feeds/n3c_drug.jsp?drug=${target}">Export this list as JSON</a></div>
 		</div>
 	</div>
 </div>
