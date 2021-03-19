@@ -1,5 +1,5 @@
 <script>
-$.getJSON("feeds/drug.jsp?drug=${param.drug}", function(data){
+$.getJSON("feeds/n3c_drug.jsp?drug=${param.drug}", function(data){
 		
 	var json = $.parseJSON(JSON.stringify(data));
 

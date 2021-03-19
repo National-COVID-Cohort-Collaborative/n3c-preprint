@@ -92,8 +92,8 @@ WebContent/resources/dataTables.rowsGroup.js -text
 WebContent/resources/he.js -text
 WebContent/resources/n3c_login_style.css -text
 WebContent/tables/compound.jsp -text
-WebContent/tables/drug.jsp -text
 WebContent/tables/gene.jsp -text
+WebContent/tables/n3c_drug.jsp -text
 WebContent/tables/ncats_drug.jsp -text
 WebContent/tables/protein.jsp -text
 WebContent/tables/substance.jsp -text
