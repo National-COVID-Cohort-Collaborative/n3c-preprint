@@ -66,11 +66,11 @@ table.dataTable thead .sorting_asc {
 			</div>
 			
 			<div class="tab-pane fade" id="ncats_drugs">
-				<jsp:include page="ncats_drugs/index.jsp" flush="true" />
+				<jsp:include page="ncats/index.jsp" flush="true" />
 			</div>
 
 			<div class="tab-pane fade" id="drugs">
-				<jsp:include page="drugs/index.jsp" flush="true" />
+				<jsp:include page="n3c/index.jsp" flush="true" />
 			</div>
 
 			<div class="tab-pane fade" id="compounds">

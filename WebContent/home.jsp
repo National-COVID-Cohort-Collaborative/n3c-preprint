@@ -112,7 +112,7 @@
 </jsp:include>
 
 <jsp:include page="graph_support/verticalBarChart.jsp">
-	<jsp:param name="data_page" value="feeds/drugs_distinct_count.jsp" />
+	<jsp:param name="data_page" value="feeds/n3c_drugs_distinct_count.jsp" />
 	<jsp:param name="dom_element" value="#drugs_distinct" />
 	<jsp:param name="entity" value="drug" />
 </jsp:include>
