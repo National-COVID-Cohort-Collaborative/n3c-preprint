@@ -13,7 +13,7 @@
 		var mention = document.getElementById("substance-mention-heading");
 		mention.innerHTML = mode + " Mentions";
 		var footer = document.getElementById("substance-panel-footer");
-		footer.innerHTML = "<a href=\"feeds/substance.jsp?substance="+mode+"\">Export this list as JSON</a>";
+		footer.innerHTML = "<a href=\"feeds/pubchem_substance.jsp?substance="+mode+"\">Export this list as JSON</a>";
 		d3.html("pubchem/substance_count_by_source.jsp?substance="+mode, function(fragment) {
 			var divContainer = document.getElementById("substance-summary-panel");
 			divContainer.innerHTML = "";
@@ -25,7 +25,7 @@
 					divContainer.innerHTML = "";
 					divContainer.append(fragment);
 				});
-		d3.html("tables/substance.jsp?substance="+mode, function(fragment) {
+		d3.html("tables/pubchem_substance.jsp?substance="+mode, function(fragment) {
 			var divContainer = document.getElementById("substance_target_table");
 			divContainer.innerHTML = "";
 			divContainer.append(fragment);
@@ -64,7 +64,7 @@
 			<div class="panel-body"  id="substance-panel-body">
 				<div id="substance-line-wrapper"></div>
 				<jsp:include page="../graph_support/multiline.jsp">
-					<jsp:param name="data_page"	value="feeds/substance_by_source_count_weekly.jsp?substance=${target}" />
+					<jsp:param name="data_page"	value="feeds/pubchem_substance_by_source_count_weekly.jsp?substance=${target}" />
 					<jsp:param name="dom_element" value="#substance-line-wrapper" />
 				</jsp:include>
 			</div>
@@ -78,7 +78,7 @@
 			<div class="panel-heading" id="substance-mention-heading">Substance Mentions</div>
 			<div class="panel-body">
 				<div id="substance_target_table">
-					<jsp:include page="../tables/substance.jsp" flush="true">
+					<jsp:include page="../tables/pubchem_substance.jsp" flush="true">
 						<jsp:param value="${target}" name="substance" />
 					</jsp:include>
 				</div>
@@ -86,7 +86,7 @@
 				<div id="substance_table" style="overflow: scroll;">&nbsp;</div>
 				<div id="op_table" style="overflow: scroll;">&nbsp;</div>
 			</div>
-			<div class="panel-footer" id="substance-panel-footer"><a href="feeds/substance.jsp?substance=${target}">Export this list as JSON</a></div>
+			<div class="panel-footer" id="substance-panel-footer"><a href="feeds/pubchem_substance.jsp?substance=${target}">Export this list as JSON</a></div>
 		</div>
 	</div>
 </div>

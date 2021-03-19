@@ -13,7 +13,7 @@
 		var mention = document.getElementById("compound-mention-heading");
 		mention.innerHTML = mode + " Mentions";
 		var footer = document.getElementById("compound-panel-footer");
-		footer.innerHTML = "<a href=\"feeds/compound.jsp?compound=" + mode
+		footer.innerHTML = "<a href=\"feeds/pubchem_compound.jsp?compound=" + mode
 				+ "\">Export this list as JSON</a>";
 		d3.html("pubchem/compound_count_by_source.jsp?compound=" + mode,
 				function(fragment) {
@@ -27,7 +27,7 @@
 					divContainer.innerHTML = "";
 					divContainer.append(fragment);
 				});
-		d3.html("tables/compound.jsp?compound=" + mode,
+		d3.html("tables/pubchem_compound.jsp?compound=" + mode,
 				function(fragment) {
 					var divContainer = document.getElementById("compound_target_table");
 					divContainer.innerHTML = "";
@@ -73,7 +73,7 @@
 			<div class="panel-body" id="compound-panel-body">
 				<div id="compound-line-wrapper"></div>
 				<jsp:include page="../graph_support/multiline.jsp">
-					<jsp:param name="data_page"	value="feeds/compound_by_source_count_weekly.jsp?compound=${target}" />
+					<jsp:param name="data_page"	value="feeds/pubchem_compound_by_source_count_weekly.jsp?compound=${target}" />
 					<jsp:param name="dom_element" value="#compound-line-wrapper" />
 				</jsp:include>
 			</div>
@@ -88,7 +88,7 @@
 				Mentions</div>
 			<div class="panel-body">
 				<div id="compound_target_table">
-					<jsp:include page="../tables/compound.jsp" flush="true">
+					<jsp:include page="../tables/pubchem_compound.jsp" flush="true">
 						<jsp:param value="${target}" name="compound" />
 					</jsp:include>
 				</div>
@@ -97,7 +97,7 @@
 				<div id="op_table" style="overflow: scroll;">&nbsp;</div>
 			</div>
 			<div class="panel-footer" id="compound-panel-footer">
-				<a href="feeds/compound.jsp?compound=${target}">Export this list as JSON</a>
+				<a href="feeds/pubchem_compound.jsp?compound=${target}">Export this list as JSON</a>
 			</div>
 		</div>
 	</div>

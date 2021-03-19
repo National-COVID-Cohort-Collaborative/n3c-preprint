@@ -13,7 +13,7 @@
 		var mention = document.getElementById("gene-mention-heading");
 		mention.innerHTML = mode + " Mentions";
 		var footer = document.getElementById("gene-panel-footer");
-		footer.innerHTML = "<a href=\"feeds/gene.jsp?gene="+mode+"\">Export this list as JSON</a>";
+		footer.innerHTML = "<a href=\"feeds/pubchem_gene.jsp?gene="+mode+"\">Export this list as JSON</a>";
 		d3.html("pubchem/gene_count_by_source.jsp?gene="+mode, function(fragment) {
 			var divContainer = document.getElementById("gene-summary-panel");
 			divContainer.innerHTML = "";
@@ -25,7 +25,7 @@
 					divContainer.innerHTML = "";
 					divContainer.append(fragment);
 				});
-		d3.html("tables/gene.jsp?gene="+mode, function(fragment) {
+		d3.html("tables/pubchem_gene.jsp?gene="+mode, function(fragment) {
 			var divContainer = document.getElementById("gene_target_table");
 			divContainer.innerHTML = "";
 			divContainer.append(fragment);
@@ -64,7 +64,7 @@
 			<div class="panel-body"  id="gene-panel-body">
 				<div id="gene-line-wrapper"></div>
 				<jsp:include page="../graph_support/multiline.jsp">
-					<jsp:param name="data_page"	value="feeds/gene_by_source_count_weekly.jsp?gene=${target}" />
+					<jsp:param name="data_page"	value="feeds/pubchem_gene_by_source_count_weekly.jsp?gene=${target}" />
 					<jsp:param name="dom_element" value="#gene-line-wrapper" />
 				</jsp:include>
 			</div>
@@ -78,7 +78,7 @@
 			<div class="panel-heading" id="gene-mention-heading">Gene Mentions</div>
 			<div class="panel-body">
 				<div id="gene_target_table">
-					<jsp:include page="../tables/gene.jsp" flush="true">
+					<jsp:include page="../tables/pubchem_gene.jsp" flush="true">
 						<jsp:param value="${target}" name="gene" />
 					</jsp:include>
 				</div>
@@ -86,7 +86,7 @@
 				<div id="gene_table" style="overflow: scroll;">&nbsp;</div>
 				<div id="op_table" style="overflow: scroll;">&nbsp;</div>
 			</div>
-			<div class="panel-footer" id="gene-panel-footer"><a href="feeds/gene.jsp?gene=${target}">Export this list as JSON</a></div>
+			<div class="panel-footer" id="gene-panel-footer"><a href="feeds/pubchem_gene.jsp?gene=${target}">Export this list as JSON</a></div>
 		</div>
 	</div>
 </div>

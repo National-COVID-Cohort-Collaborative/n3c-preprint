@@ -118,25 +118,25 @@
 </jsp:include>
 
 <jsp:include page="graph_support/verticalBarChart.jsp">
-	<jsp:param name="data_page" value="feeds/compounds_distinct_count.jsp" />
+	<jsp:param name="data_page" value="feeds/pubchem_compounds_distinct_count.jsp" />
 	<jsp:param name="dom_element" value="#compounds_distinct" />
 	<jsp:param name="entity" value="compound" />
 </jsp:include>
 
 <jsp:include page="graph_support/verticalBarChart.jsp">
-	<jsp:param name="data_page" value="feeds/genes_distinct_count.jsp" />
+	<jsp:param name="data_page" value="feeds/pubchem_genes_distinct_count.jsp" />
 	<jsp:param name="dom_element" value="#genes_distinct" />
 	<jsp:param name="entity" value="gene" />
 </jsp:include>
 
 <jsp:include page="graph_support/verticalBarChart.jsp">
-	<jsp:param name="data_page" value="feeds/proteins_distinct_count.jsp" />
+	<jsp:param name="data_page" value="feeds/pubchem_proteins_distinct_count.jsp" />
 	<jsp:param name="dom_element" value="#proteins_distinct" />
 	<jsp:param name="entity" value="protein" />
 </jsp:include>
 
 <jsp:include page="graph_support/verticalBarChart.jsp">
-	<jsp:param name="data_page" value="feeds/substances_distinct_count.jsp" />
+	<jsp:param name="data_page" value="feeds/pubchem_substances_distinct_count.jsp" />
 	<jsp:param name="dom_element" value="#substances_distinct" />
 	<jsp:param name="entity" value="substance" />
 </jsp:include>

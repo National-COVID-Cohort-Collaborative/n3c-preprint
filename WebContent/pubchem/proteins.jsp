@@ -13,7 +13,7 @@
 		var mention = document.getElementById("protein-mention-heading");
 		mention.innerHTML = mode + " Mentions";
 		var footer = document.getElementById("protein-panel-footer");
-		footer.innerHTML = "<a href=\"feeds/protein.jsp?protein="+mode+"\">Export this list as JSON</a>";
+		footer.innerHTML = "<a href=\"feeds/pubchem_protein.jsp?protein="+mode+"\">Export this list as JSON</a>";
 		d3.html("pubchem/protein_count_by_source.jsp?protein="+mode, function(fragment) {
 			var divContainer = document.getElementById("protein-summary-panel");
 			divContainer.innerHTML = "";
@@ -25,7 +25,7 @@
 					divContainer.innerHTML = "";
 					divContainer.append(fragment);
 				});
-		d3.html("tables/protein.jsp?protein="+mode, function(fragment) {
+		d3.html("tables/pubchem_protein.jsp?protein="+mode, function(fragment) {
 			var divContainer = document.getElementById("protein_target_table");
 			divContainer.innerHTML = "";
 			divContainer.append(fragment);
@@ -64,7 +64,7 @@
 			<div class="panel-body"  id="protein-panel-body">
 				<div id="protein-line-wrapper"></div>
 				<jsp:include page="../graph_support/multiline.jsp">
-					<jsp:param name="data_page"	value="feeds/protein_by_source_count_weekly.jsp?protein=${target}" />
+					<jsp:param name="data_page"	value="feeds/pubchem_protein_by_source_count_weekly.jsp?protein=${target}" />
 					<jsp:param name="dom_element" value="#protein-line-wrapper" />
 				</jsp:include>
 			</div>
@@ -78,7 +78,7 @@
 			<div class="panel-heading" id="protein-mention-heading">Protein Mentions</div>
 			<div class="panel-body">
 				<div id="protein_target_table">
-					<jsp:include page="../tables/protein.jsp" flush="true">
+					<jsp:include page="../tables/pubchem_protein.jsp" flush="true">
 						<jsp:param value="${target}" name="protein" />
 					</jsp:include>
 				</div>
@@ -86,7 +86,7 @@
 				<div id="protein_table" style="overflow: scroll;">&nbsp;</div>
 				<div id="op_table" style="overflow: scroll;">&nbsp;</div>
 			</div>
-			<div class="panel-footer" id="protein-panel-footer"><a href="feeds/protein.jsp?protein=${target}">Export this list as JSON</a></div>
+			<div class="panel-footer" id="protein-panel-footer"><a href="feeds/pubchem_protein.jsp?protein=${target}">Export this list as JSON</a></div>
 		</div>
 	</div>
 </div>

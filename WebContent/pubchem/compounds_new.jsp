@@ -46,8 +46,8 @@
 <script type="text/javascript">
 	function compound_render(mode) {
 		var footer = document.getElementById("compound-panel-footer");
-		footer.innerHTML = "<a href=\"feeds/compound.jsp?compound="+mode+"\">Export this list as JSON</a>";
-		d3.html("tables/compound.jsp?compound="+mode, function(fragment) {
+		footer.innerHTML = "<a href=\"feeds/pubchem_compound.jsp?compound="+mode+"\">Export this list as JSON</a>";
+		d3.html("tables/pubchem_compound.jsp?compound="+mode, function(fragment) {
 			var divContainer = document.getElementById("compound_target_table");
 			divContainer.innerHTML = "";
 			divContainer.append(fragment);
@@ -85,7 +85,7 @@
 			<div class="panel-heading">Compound Mentions</div>
 			<div class="panel-body">
 				<div id="compound_target_table">
-					<jsp:include page="../tables/compound.jsp" flush="true">
+					<jsp:include page="../tables/pubchem_compound.jsp" flush="true">
 						<jsp:param value="${target}" name="drug" />
 					</jsp:include>
 				</div>
@@ -93,7 +93,7 @@
 				<div id="compound_table" style="overflow: scroll;">&nbsp;</div>
 				<div id="op_table" style="overflow: scroll;">&nbsp;</div>
 			</div>
-			<div class="panel-footer" id="compound-panel-footer"><a href="feeds/compound.jsp?compound=${target}">Export this list as JSON</a></div>
+			<div class="panel-footer" id="compound-panel-footer"><a href="feeds/pubchem_compound.jsp?compound=${target}">Export this list as JSON</a></div>
 		</div>
 	</div>
 </div>

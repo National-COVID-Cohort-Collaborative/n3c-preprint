@@ -1,5 +1,5 @@
 <script>
-$.getJSON("feeds/gene.jsp?gene=${param.gene}", function(data){
+$.getJSON("feeds/pubchem_compound.jsp?compound=${param.compound}", function(data){
 		
 	var json = $.parseJSON(JSON.stringify(data));
 
@@ -13,7 +13,7 @@ $.getJSON("feeds/gene.jsp?gene=${param.gene}", function(data){
 	var table = document.createElement("table");
 	table.className = 'table table-hover';
 	table.style.width = '100%';
-	table.id="gene_table_inner";
+	table.id="compound_table_inner";
 
 	var header= table.createTHead();
 	var header_row = header.insertRow(0); 
@@ -24,13 +24,13 @@ $.getJSON("feeds/gene.jsp?gene=${param.gene}", function(data){
 		header_row.appendChild(th);
 	}
 
-	var divContainer = document.getElementById("gene_table");
-	divContainer.innerHTML = "<h3>${param.gene}</h3>";
+	var divContainer = document.getElementById("compound_table");
+	divContainer.innerHTML = "<h3>${param.compound}</h3>";
 	divContainer.appendChild(table);
 
 	var data = json['rows'];
 
-	$('#gene_table_inner').DataTable( {
+	$('#compound_table_inner').DataTable( {
     	data: data,
        	paging: true,
     	pageLength: 10,
