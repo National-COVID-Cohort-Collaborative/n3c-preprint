@@ -20,13 +20,13 @@ WebContent/feeds/compound.jsp -text
 WebContent/feeds/compound_by_source_count_weekly.jsp -text
 WebContent/feeds/compound_by_source_count_weekly_full.jsp -text
 WebContent/feeds/compounds_distinct_count.jsp -text
-WebContent/feeds/drug.jsp -text
-WebContent/feeds/drug_by_source_count_weekly.jsp -text
-WebContent/feeds/drugs_distinct_count.jsp -text
-WebContent/feeds/drugs_total_count.jsp -text
 WebContent/feeds/gene.jsp -text
 WebContent/feeds/gene_by_source_count_weekly.jsp -text
 WebContent/feeds/genes_distinct_count.jsp -text
+WebContent/feeds/n3c_drug.jsp -text
+WebContent/feeds/n3c_drug_by_source_count_weekly.jsp -text
+WebContent/feeds/n3c_drugs_distinct_count.jsp -text
+WebContent/feeds/n3c_drugs_total_count.jsp -text
 WebContent/feeds/ncats_drug.jsp -text
 WebContent/feeds/ncats_drug_by_source_count_weekly.jsp -text
 WebContent/feeds/ncats_drugs_distinct_count.jsp -text
