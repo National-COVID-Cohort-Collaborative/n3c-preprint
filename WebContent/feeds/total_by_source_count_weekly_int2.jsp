@@ -4,7 +4,7 @@
 <sql:query var="counts" dataSource="jdbc/N3CCohort">
 	select jsonb_pretty(jsonb_agg(done))
 	from (
-			(select week as week,coalesce(count,0) as count from (select week from covid_biorxiv.weeks_int) as foo
+			(select week as week,coalesce(count,0) as count from (select week from covid.weeks_int) as foo
 			natural left outer join
 			(select to_char(pub_date,'WW')::int as week,count(*) from covid_biorxiv.biorxiv_current where site = ? and pub_date >= '2020-01-01' and pub_date < '2021-01-01' group by 1) as bar)
 		order by 1

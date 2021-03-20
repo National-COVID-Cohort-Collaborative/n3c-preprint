@@ -4,16 +4,16 @@
 <sql:query var="drugs" dataSource="jdbc/N3CCohort">
 	select jsonb_pretty(jsonb_agg(done))
 	from (
-			(select symbol,week,coalesce(count,0) as count from (select 'medRxiv' as  symbol,* from covid_biorxiv.weeks) as foo
+			(select symbol,week,coalesce(count,0) as count from (select 'medRxiv' as  symbol,* from covid.weeks) as foo
 			natural left outer join
 			(select site as symbol,to_char(pub_date,'yyyy-WW') as week,count(*) from covid_biorxiv.biorxiv_current where pub_date >= '2020-01-01' group by 1,2) as bar)
 		union
-			(select symbol,week,coalesce(count,0) as count from (select 'bioRxiv' as  symbol,* from covid_biorxiv.weeks) as foo
+			(select symbol,week,coalesce(count,0) as count from (select 'bioRxiv' as  symbol,* from covid.weeks) as foo
 			natural left outer join
 			(select site as symbol,to_char(pub_date,'yyyy-WW') as week,count(*) from covid_biorxiv.biorxiv_current where pub_date >= '2020-01-01' group by 1,2) as bar)
 		union
 			select  symbol,week,coalesce(count,0) as count from
-			(select * from (select ?||' ('||symbol||')' as symbol,week from (select 'bioRxiv' as  symbol,* from covid_biorxiv.weeks) as foo) as foo2
+			(select * from (select ?||' ('||symbol||')' as symbol,week from (select 'bioRxiv' as  symbol,* from covid.weeks) as foo) as foo2
 			left outer join
 			(select phrase||' ('||site||')' as symbol,to_char(pub_date,'yyyy-WW') as week,count(distinct doi)
 			 from covid_biorxiv.biorxiv_current natural join covid_biorxiv.pubchem_sentence_compound
@@ -21,7 +21,7 @@
 			 using(symbol,week)) as bar2
 		union
 			select  symbol,week,coalesce(count,0) as count from
-			(select * from (select ?||' ('||symbol||')' as symbol,week from (select 'medRxiv' as  symbol,* from covid_biorxiv.weeks) as foo) as foo2
+			(select * from (select ?||' ('||symbol||')' as symbol,week from (select 'medRxiv' as  symbol,* from covid.weeks) as foo) as foo2
 			left outer join
 			(select phrase||' ('||site||')' as symbol,to_char(pub_date,'yyyy-WW') as week,count(distinct doi)
 			 from covid_biorxiv.biorxiv_current natural join covid_biorxiv.pubchem_sentence_compound

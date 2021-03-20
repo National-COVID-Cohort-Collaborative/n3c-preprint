@@ -5,22 +5,22 @@
 	select jsonb_pretty(jsonb_agg(done))
 	from (
 		select symbol,week,coalesce(count, 0) as count from
-			(select 'bioRxiv' as symbol,week from covid_biorxiv.weeks) as bar
+			(select 'bioRxiv' as symbol,week from covid.weeks) as bar
 			natural left outer join
 			(select source as symbol,week,count(*) from covid_ncats.drugs_by_week where medication=? group by 1,2) as foo
 		union
 		select symbol,week,coalesce(count, 0) as count from
-			(select 'medRxiv' as symbol,week from covid_biorxiv.weeks) as bar
+			(select 'medRxiv' as symbol,week from covid.weeks) as bar
 			natural left outer join
 			(select source as symbol,week,count(*) from covid_ncats.drugs_by_week where medication=? group by 1,2) as foo
 		union
 		select symbol,week,coalesce(count, 0) as count from
-			(select 'litcovid' as symbol,week from covid_biorxiv.weeks) as bar
+			(select 'litcovid' as symbol,week from covid.weeks) as bar
 			natural left outer join
 			(select source as symbol,week,count(*) from covid_ncats.drugs_by_week where medication=? group by 1,2) as foo
 		union
 		select symbol,week,coalesce(count, 0) as count from
-			(select 'pmc' as symbol,week from covid_biorxiv.weeks) as bar
+			(select 'pmc' as symbol,week from covid.weeks) as bar
 			natural left outer join
 			(select source as symbol,week,count(*) from covid_ncats.drugs_by_week where medication=? group by 1,2) as foo
 		order by 1,2
