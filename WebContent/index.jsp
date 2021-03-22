@@ -54,7 +54,6 @@ table.dataTable thead .sorting_asc {
 			<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
 			<li><a data-toggle="tab" href="#ncats_drugs">NCATS Drugs of Interest</a></li>
 			<li><a data-toggle="tab" href="#drugs">N3C Drugs</a></li>
-			<li><a data-toggle="tab" href="#compounds">PubChem Compounds</a></li>
 			<li><a data-toggle="tab" href="#genes">PubChem Genes</a></li>
 			<li><a data-toggle="tab" href="#proteins">PubChem Proteins</a></li>
 			<li><a data-toggle="tab" href="#substances">PubChem Substances</a></li>
@@ -71,10 +70,6 @@ table.dataTable thead .sorting_asc {
 
 			<div class="tab-pane fade" id="drugs">
 				<jsp:include page="n3c/index.jsp" flush="true" />
-			</div>
-
-			<div class="tab-pane fade" id="compounds">
-				<jsp:include page="pubchem/compounds.jsp" flush="true" />
 			</div>
 
 			<div class="tab-pane fade" id="genes">

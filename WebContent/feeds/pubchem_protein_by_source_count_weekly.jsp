@@ -4,21 +4,25 @@
 <sql:query var="drugs" dataSource="jdbc/N3CCohort">
 	select jsonb_pretty(jsonb_agg(done))
 	from (
-			select  symbol,week,coalesce(count,0) as count from
-			(select * from (select ?||' ('||symbol||')' as symbol,week from (select 'bioRxiv' as  symbol,* from covid.weeks) as foo) as foo2
-			left outer join
-			(select phrase||' ('||site||')' as symbol,to_char(pub_date,'yyyy-WW') as week,count(distinct doi)
-			 from covid_biorxiv.biorxiv_current natural join covid_biorxiv.pubchem_sentence_protein
-			 where phrase=? and pub_date > '2020-01-01' group by 1,2) as  bar
-			 using(symbol,week)) as bar2
+		select symbol,week,coalesce(count, 0) as count from
+			(select 'bioRxiv' as symbol,week from covid.weeks) as bar
+			natural left outer join
+			(select source as symbol,week,count(*) from covid_pubchem.proteins_drugs_by_week where name=? group by 1,2) as foo
 		union
-			select  symbol,week,coalesce(count,0) as count from
-			(select * from (select ?||' ('||symbol||')' as symbol,week from (select 'medRxiv' as  symbol,* from covid.weeks) as foo) as foo2
-			left outer join
-			(select phrase||' ('||site||')' as symbol,to_char(pub_date,'yyyy-WW') as week,count(distinct doi)
-			 from covid_biorxiv.biorxiv_current natural join covid_biorxiv.pubchem_sentence_protein
-			 where phrase=? and pub_date > '2020-01-01' group by 1,2) as  bar
-			 using(symbol,week)) as bar2
+		select symbol,week,coalesce(count, 0) as count from
+			(select 'medRxiv' as symbol,week from covid.weeks) as bar
+			natural left outer join
+			(select source as symbol,week,count(*) from covid_pubchem.proteins_drugs_by_week where name=? group by 1,2) as foo
+		union
+		select symbol,week,coalesce(count, 0) as count from
+			(select 'litcovid' as symbol,week from covid.weeks) as bar
+			natural left outer join
+			(select source as symbol,week,count(*) from covid_pubchem.proteins_drugs_by_week where name=? group by 1,2) as foo
+		union
+		select symbol,week,coalesce(count, 0) as count from
+			(select 'pmc' as symbol,week from covid.weeks) as bar
+			natural left outer join
+			(select source as symbol,week,count(*) from covid_pubchem.proteins_drugs_by_week where name=? group by 1,2) as foo
 		order by 1,2
 	) as done;
 	<sql:param>${param.protein}</sql:param>
