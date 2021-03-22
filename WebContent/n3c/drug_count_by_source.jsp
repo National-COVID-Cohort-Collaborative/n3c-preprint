@@ -2,7 +2,7 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
 <sql:query var="elements" dataSource="jdbc/N3CCohort">
-	select site,count from covid_biorxiv.cohort_med_site_count where original = ? order by 1;
+	select source,count(*) from covid_n3c.sentence where original = ? group by 1 order by 1;
 	<sql:param>${param.drug}</sql:param>
 </sql:query>
 
@@ -15,7 +15,7 @@
 			</tr>
 			</c:if>
 			<tr>
-				<td>${row.site}</td>
+				<td>${row.source}</td>
 				<td>${row.count}</td>
 			</tr>
 			<c:if test="${rowCounter.last}">
