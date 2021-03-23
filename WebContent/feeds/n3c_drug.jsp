@@ -5,7 +5,7 @@
 	select jsonb_pretty(jsonb_agg(bar))
 	from (select source, title, url, substring(section from 1 for 20) as section, sentence
 		  from covid_n3c.sentence
-		  where medication = ?
+		  where original = ?
 		  order by 1,4) as bar
 	;
 	<sql:param>${param.drug}</sql:param>

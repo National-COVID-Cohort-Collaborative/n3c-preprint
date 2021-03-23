@@ -2,7 +2,7 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
 <sql:query var="elements" dataSource="jdbc/N3CCohort">
-	select name,count(distinct doi,pmcid,pmid) from covid_pubchem.sentence_compound group by 1 order by 2 desc;
+	select substring(name for 40) as name,count(*) from covid_pubchem.sentence_compound group by 1 order by 2 desc;
 </sql:query>
 
 [
