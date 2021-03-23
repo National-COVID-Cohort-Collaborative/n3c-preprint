@@ -71,7 +71,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-6">
+	<div class="col-sm-12">
 		<div class="panel panel-primary">
 			<div class="panel-heading">PubChem Genes by # Mentioning Preprints</div>
 			<div class="panel-body"  style="height:613px; overflow-y:auto; ">
@@ -80,7 +80,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-3">
+	<div class="col-sm-9">
 		<div class="panel panel-primary">
 			<div class="panel-heading">PubChem Proteins by # Mentioning Preprints</div>
 			<div class="panel-body">

@@ -35,13 +35,14 @@ $.getJSON("feeds/pubchem_gene.jsp?gene=${param.gene}", function(data){
        	paging: true,
     	pageLength: 10,
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
-    	order: [[0, 'asc'],[1,'asc']],
+    	order: [[0, 'asc'],[1, 'asc'],[2,'asc']],
      	columns: [
+       		{ data: 'source', visible: true, orderable: true },
         	{ data: 'title',
           	  orderable: true,
           	  width: "40%",
           	  render: function ( data, type, row ) {
-          		return '<a href="https://doi.org/'+row.doi+'"><span style="color:#376076">'+row.title+'</span></a>';
+          		return '<a href="'+row.url+'"><span style="color:#376076">'+row.title+'</span></a>';
                	}
                },
        		{ data: 'section', visible: true, orderable: true },
@@ -50,11 +51,11 @@ $.getJSON("feeds/pubchem_gene.jsp?gene=${param.gene}", function(data){
        		  allowHTML: true
              }
     	],
-    	rowsGroup:  [0,1],	
+    	rowsGroup:  [0,1,2],	
     initComplete: function () {
         this.api().columns().every( function () {
             var column = this;
-            if  (column.index() != 1)
+            if  (column.index() != 2)
             	return;
             var select = $('<br/><select><option value=""></option></select>')
                 .appendTo( $(column.header()) )

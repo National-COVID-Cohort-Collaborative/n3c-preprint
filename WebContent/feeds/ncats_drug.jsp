@@ -3,7 +3,7 @@
 
 <sql:query var="drugs" dataSource="jdbc/N3CCohort">
 	select jsonb_pretty(jsonb_agg(bar))
-	from (select source, title, url, substring(section from 1 for 20) as section, sentence
+	from (select distinct source, title, url, substring(section from 1 for 20) as section, sentence
 		  from covid_ncats.sentence
 		  where medication = ?
 		  order by 1,4) as bar

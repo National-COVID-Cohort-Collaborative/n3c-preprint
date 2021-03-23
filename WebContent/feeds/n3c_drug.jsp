@@ -3,20 +3,16 @@
 
 <sql:query var="drugs" dataSource="jdbc/N3CCohort">
 	select jsonb_pretty(jsonb_agg(bar))
-	from (select foo.doi,coalesce(title.title,foo.title) as title, section, regexp_replace(sentence, '(^|[^a-zA-Z])('||?||')', '\1<b>\2</b>', 'i') as sentence
-		  from (select doi,title,name as section,full_text as sentence
-		  from covid_biorxiv.document natural join covid_biorxiv.cohort_match
-		  where original=?) as foo
-		  left outer join
-		  covid_crossref.title
-		  on  foo.doi=title.doi
-		  order by 1,3) as bar
+	from (select source, title, url, substring(section from 1 for 20) as section, sentence
+		  from covid_n3c.sentence
+		  where medication = ?
+		  order by 1,4) as bar
 	;
-	<sql:param>${param.drug}</sql:param>
 	<sql:param>${param.drug}</sql:param>
 </sql:query>
 {
     "headers": [
+        {"value":"source", "label":"Source"},
         {"value":"title", "label":"Title"},
         {"value":"section", "label":"Section"},
         {"value":"sentence", "label":"Sentence"}
