@@ -9,14 +9,13 @@
 			<div class="panel-body">
 				<div id="home_summary">
 				<sql:query var="elements" dataSource="jdbc/N3CCohort">
-					select * from
-					(select site as description,to_char(count(*),'FM999,999') as count from covid_biorxiv.biorxiv_current group by 1
-					union
-					select 'LitCovid' as description,to_char(count(*),'FM999,999') as count from covid_litcovid.article
-					union
-					select 'PubMed Central' as description, to_char(count(*),'FM999,999') as count from covid_pmc.xml
-					) as foo
-					order by description
+					select
+						description,
+						to_char(count,'FM999,999') as count,
+						to_char(last_update, 'yyyy-mm-dd FMHH:MI PM') as last_update
+					from covid.stats
+					where category='publications' or category='preprints'
+					order by source
 				</sql:query>
 				
 				<c:forEach items="${elements.rows}" var="row" varStatus="rowCounter">
