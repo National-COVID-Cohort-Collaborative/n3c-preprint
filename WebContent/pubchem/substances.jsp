@@ -38,7 +38,7 @@
 
 <form action="index.jsp">
 	<sql:query var="substances" dataSource="jdbc/N3CCohort">
-		select phrase as substance,count(*) from covid_biorxiv.pubchem_sentence_substance group by 1 order by 2 desc;
+		select name as substance,count(*) from covid_pubchem.substances_drugs_by_week group by 1 order by 2 desc;
 	</sql:query>
 	<label for="table">Choose a substance:</label> <select name="mode" id="substance_mode" onchange="substance_render(mode.value)">
 	<c:forEach items="${substances.rows}" var="row" varStatus="rowCounter">

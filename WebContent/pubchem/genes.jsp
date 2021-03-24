@@ -38,7 +38,7 @@
 
 <form action="index.jsp">
 	<sql:query var="genes" dataSource="jdbc/N3CCohort">
-		select phrase as gene,count(*) from covid_biorxiv.pubchem_sentence_gene group by 1 order by 2 desc;
+		select name as gene,count(*) from covid_pubchem.genes_drugs_by_week group by 1 order by 2 desc;
 	</sql:query>
 	<label for="table">Choose a gene:</label> <select name="mode" id="gene_mode" onchange="gene_render(mode.value)">
 	<c:forEach items="${genes.rows}" var="row" varStatus="rowCounter">

@@ -45,7 +45,7 @@
 
 <form action="index.jsp">
 	<sql:query var="compounds" dataSource="jdbc/N3CCohort">
-		select phrase as compound,count(*) from covid_biorxiv.pubchem_sentence_compound group by 1 order by 2 desc;
+		select name as compound,count(*) from covid_pubchem.compounds_drugs_by_week group by 1 order by 2 desc;
 	</sql:query>
 	<label for="table">Choose a Compound:</label>
 	<select name="mode" id="compound_mode" onchange="compound_render(mode.value)">

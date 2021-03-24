@@ -37,7 +37,7 @@
 
 <form action="index.jsp">
 	<sql:query var="drugs" dataSource="jdbc/N3CCohort">
-		select original as drug,count(*) from covid_biorxiv.cohort_match group by 1 order by 2 desc;
+		select medication as drug,count(*) from covid_ncats.drugs_by_week group by 1 order by 2 desc;
 	</sql:query>
 	<label for="table">Choose a  Drug:</label> <select name="mode" id="drug_mode" onchange="ncats_drug_render(mode.value)">
 	<c:forEach items="${drugs.rows}" var="row" varStatus="rowCounter">

@@ -38,7 +38,7 @@
 
 <form action="index.jsp">
 	<sql:query var="proteins" dataSource="jdbc/N3CCohort">
-		select phrase as protein,count(*) from covid_biorxiv.pubchem_sentence_protein group by 1 order by 2 desc;
+		select name as protein,count(*) from covid_pubchem.proteins_drugs_by_week group by 1 order by 2 desc;
 	</sql:query>
 	<label for="table">Choose a protein:</label> <select name="mode" id="protein_mode" onchange="protein_render(mode.value)">
 	<c:forEach items="${proteins.rows}" var="row" varStatus="rowCounter">
