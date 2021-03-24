@@ -48,7 +48,8 @@ $.getJSON("feeds/n3c_drug.jsp?drug=${param.drug}", function(data){
         	{ data: 'sentence',
         	  orderable: true,
        		  allowHTML: true
-             }
+             },
+       		{ data: 'source', visible: true, orderable: true }
     	],
     	rowsGroup:  [0,1],	
     initComplete: function () {

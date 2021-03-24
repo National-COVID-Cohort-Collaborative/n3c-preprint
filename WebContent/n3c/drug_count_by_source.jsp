@@ -2,7 +2,7 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
 <sql:query var="elements" dataSource="jdbc/N3CCohort">
-	select source,count(*) from covid_n3c.sentence where original = ? group by 1 order by 1;
+	select source,count(*) from (select distinct source,doi,pmcid,pmid from covid_n3c.sentence where original=?) as foo group by 1 order by 1;
 	<sql:param>${param.drug}</sql:param>
 </sql:query>
 

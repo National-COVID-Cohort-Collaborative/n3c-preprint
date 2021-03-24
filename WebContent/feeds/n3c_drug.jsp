@@ -12,10 +12,10 @@
 </sql:query>
 {
     "headers": [
-        {"value":"source", "label":"Source"},
         {"value":"title", "label":"Title"},
         {"value":"section", "label":"Section"},
-        {"value":"sentence", "label":"Sentence"}
+        {"value":"sentence", "label":"Sentence"},
+        {"value":"source", "label":"Source"}
     ],
     "rows" : 
 <c:forEach items="${drugs.rows}" var="row" varStatus="rowCounter">

@@ -35,9 +35,8 @@ $.getJSON("feeds/ncats_drug.jsp?drug=${param.drug}", function(data){
        	paging: true,
     	pageLength: 10,
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
-    	order: [[0, 'asc'],[1, 'asc'],[2,'asc']],
+    	order: [[0, 'asc'],[1, 'asc']],
      	columns: [
-       		{ data: 'source', visible: true, orderable: true },
         	{ data: 'title',
           	  orderable: true,
           	  width: "40%",
@@ -49,13 +48,14 @@ $.getJSON("feeds/ncats_drug.jsp?drug=${param.drug}", function(data){
         	{ data: 'sentence',
         	  orderable: true,
        		  allowHTML: true
-             }
+             },
+       		{ data: 'source', visible: true, orderable: true }
     	],
-    	rowsGroup:  [0,1,2],	
+    	rowsGroup:  [0,1],	
     initComplete: function () {
         this.api().columns().every( function () {
             var column = this;
-            if  (column.index() != 2)
+            if  (column.index() != 1)
             	return;
             var select = $('<br/><select><option value=""></option></select>')
                 .appendTo( $(column.header()) )

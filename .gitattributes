@@ -15,13 +15,11 @@ WebContent/WEB-INF/web.xml -text
 WebContent/feeds/n3c_drug.jsp -text
 WebContent/feeds/n3c_drug_by_source_count_weekly.jsp -text
 WebContent/feeds/n3c_drugs_distinct_count.jsp -text
-WebContent/feeds/n3c_drugs_total_count.jsp -text
 WebContent/feeds/ncats_drug.jsp -text
 WebContent/feeds/ncats_drug_by_source_count_weekly.jsp -text
 WebContent/feeds/ncats_drugs_distinct_count.jsp -text
 WebContent/feeds/pubchem_compound.jsp -text
 WebContent/feeds/pubchem_compound_by_source_count_weekly.jsp -text
-WebContent/feeds/pubchem_compound_by_source_count_weekly_full.jsp -text
 WebContent/feeds/pubchem_compounds_distinct_count.jsp -text
 WebContent/feeds/pubchem_gene.jsp -text
 WebContent/feeds/pubchem_gene_by_source_count_weekly.jsp -text
@@ -33,9 +31,6 @@ WebContent/feeds/pubchem_substance.jsp -text
 WebContent/feeds/pubchem_substance_by_source_count_weekly.jsp -text
 WebContent/feeds/pubchem_substances_distinct_count.jsp -text
 WebContent/feeds/total_by_source_count_weekly.jsp -text
-WebContent/feeds/total_by_source_count_weekly_int.jsp -text
-WebContent/feeds/total_by_source_count_weekly_int2.jsp -text
-WebContent/feeds/total_count_weekly.jsp -text
 WebContent/footer.jsp -text
 WebContent/graph_support/bar.jsp -text
 WebContent/graph_support/bar_test.jsp -text
@@ -69,13 +64,9 @@ WebContent/navbar.jsp -text
 WebContent/ncats/index.jsp -text
 WebContent/ncats/ncats_drug_count_by_source.jsp -text
 WebContent/ncats/ncats_drug_plot_by_source.jsp -text
-WebContent/ncats_drugs/index.jsp -text
-WebContent/ncats_drugs/ncats_drug_count_by_source.jsp -text
-WebContent/ncats_drugs/ncats_drug_plot_by_source.jsp -text
 WebContent/pubchem/compound_count_by_source.jsp -text
 WebContent/pubchem/compound_plot_by_source.jsp -text
 WebContent/pubchem/compounds.jsp -text
-WebContent/pubchem/compounds_new.jsp -text
 WebContent/pubchem/gene_count_by_source.jsp -text
 WebContent/pubchem/gene_plot_by_source.jsp -text
 WebContent/pubchem/genes.jsp -text
