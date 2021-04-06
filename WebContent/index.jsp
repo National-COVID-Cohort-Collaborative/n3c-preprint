@@ -41,11 +41,12 @@ table.dataTable thead .sorting_asc {
 
 	<div class="container-fluid center-box">
 		<h2 class="header-text">
-			<img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C COVID-19 medRxiv / bioRxiv Exploration
+			<img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo">N3C COVID-19 Literature Exploration
 		</h2>
 		<div style="text-align: center;">
-			This is an initial configuration of an exploration tool for preprints involving COVID-19. All data are drawn from
-			<a href="https://www.medrxiv.org">medRxiv</a> and <a href="https://www.biorxiv.org">bioRxiv</a>.
+			This is an initial configuration of an exploration tool for mentions of entities of interest (drugs,
+			genes, etc.) <br>appearing in the literature involving COVID-19. All data are drawn from
+			the sources in the tile on the top left.
 			<br> You are encouraged to submit suggestions for
 			enhancements/additions.
 		</div>
