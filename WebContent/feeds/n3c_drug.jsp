@@ -3,7 +3,7 @@
 
 <sql:query var="drugs" dataSource="jdbc/N3CCohort">
 	select jsonb_pretty(jsonb_agg(bar))
-	from (select source, title, url, substring(section from 1 for 20) as section, sentence
+	from (select source, title, url, substring(section from 1 for 20) as section, sentence, coalesce(week, '') as week
 		  from covid_n3c.sentence
 		  where original = ?
 		  order by 1,4) as bar
@@ -15,7 +15,8 @@
         {"value":"title", "label":"Title"},
         {"value":"section", "label":"Section"},
         {"value":"sentence", "label":"Sentence"},
-        {"value":"source", "label":"Source"}
+        {"value":"source", "label":"Source"},
+        {"value":"week", "label":"Week"}
     ],
     "rows" : 
 <c:forEach items="${drugs.rows}" var="row" varStatus="rowCounter">

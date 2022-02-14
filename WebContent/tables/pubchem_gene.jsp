@@ -49,7 +49,8 @@ $.getJSON("feeds/pubchem_gene.jsp?gene=${param.gene}", function(data){
         	  orderable: true,
        		  allowHTML: true
              },
-       		{ data: 'source', visible: true, orderable: true }
+       		{ data: 'source', visible: true, orderable: true },
+       		{ data: 'week', visible: true, orderable: true }
     	],
     	rowsGroup:  [0,1],	
     initComplete: function () {

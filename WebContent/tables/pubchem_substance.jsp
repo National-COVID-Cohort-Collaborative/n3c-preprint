@@ -49,7 +49,8 @@ $.getJSON("feeds/pubchem_substance.jsp?substance=${param.substance}", function(d
         	  orderable: true,
        		  allowHTML: true
              },
-       		{ data: 'source', visible: true, orderable: true }
+       		{ data: 'source', visible: true, orderable: true },
+       		{ data: 'week', visible: true, orderable: true }
     	],
     	rowsGroup:  [0,1],	
     initComplete: function () {
