@@ -56,7 +56,7 @@ $.getJSON("feeds/ncats_drug.jsp?drug=${param.drug}", function(data){
     initComplete: function () {
         this.api().columns().every( function () {
             var column = this;
-            if  (column.index() != 1)
+            if  (column.index() != 1 && column.index() != 3)
             	return;
             var select = $('<br/><select><option value=""></option></select>')
                 .appendTo( $(column.header()) )
