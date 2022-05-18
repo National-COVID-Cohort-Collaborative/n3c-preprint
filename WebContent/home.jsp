@@ -39,6 +39,32 @@
 			<div class="panel-body">
 				<div id="home-line-wrapper"></div>
 			</div>
+		<div id="timeline">
+			<div id="timeline_graph"></div>
+			<jsp:include page="graph_support/time_line_4_column.jsp">
+				<jsp:param name="data_page" value="feeds/total_source_by_week.jsp" />
+				<jsp:param name="dom_element" value="#timeline" />
+				<jsp:param name="namespace" value="timeline" />
+				<jsp:param name="date_column" value="week" />
+				<jsp:param name="column1" value="pmc" />
+				<jsp:param name="column1_label" value="# of Manuscripts" />
+				<jsp:param name="column1_tip" value="PMC" />
+				<jsp:param name="column1_tip_offset" value="75" />
+				<jsp:param name="column2" value="litcovid" />
+				<jsp:param name="column2_label" value="LITCOVID" />
+				<jsp:param name="column2_tip" value="LITCOVID" />
+				<jsp:param name="column2_tip_offset" value="75" />
+				<jsp:param name="useColumn2Scaling" value="true" />
+				<jsp:param name="column3" value="biorxiv" />
+				<jsp:param name="column3_label" value="bioRxiv" />
+				<jsp:param name="column3_tip" value="bioRxiv" />
+				<jsp:param name="column3_tip_offset" value="75" />
+				<jsp:param name="column4" value="medrxiv" />
+				<jsp:param name="column4_label" value="medRxiv" />
+				<jsp:param name="column4_tip" value="medRxiv" />
+				<jsp:param name="column4_tip_offset" value="75" />
+			</jsp:include>
+		</div>
 		</div>
 	</div>
 </div>
