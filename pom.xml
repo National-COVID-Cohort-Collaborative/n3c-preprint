@@ -57,11 +57,6 @@
             <version>1.0.4-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>MailTagLib</groupId>
-            <artifactId>MailTagLib</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
         	<groupId>edu.uiowa.icts.taglib</groupId>
         	<artifactId>LuceneTagLib</artifactId>
         	<version>0.0.8-SNAPSHOT</version>
