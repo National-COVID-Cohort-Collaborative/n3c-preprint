@@ -101,11 +101,11 @@
 		if (error) throw error;
 		
 		// parse the date / time
-		var parseDate = d3.timeParse("%Y-%W");
+		var parseDate = d3.timeParse("%Y-%m");
 
 		// format the data
 		data.forEach(function(d) {
-			d.week = parseDate(d.week);
+			d.month = parseDate(d.month);
 			d.count = +d.count;
 		});
 
@@ -375,22 +375,22 @@
 	    			.text("${param.column4_tip}:");
 		
 				dua_dta_focus.append("text")
-			    	.attr("class", "tooltip-duas")
+			    	.attr("class", "tooltip1")
 			    	.attr("x", ${param.column1_tip_offset})
 			    	.attr("y", 18);
 				
 				dua_dta_focus.append("text")
-					.attr("class", "tooltip-dtas")
+					.attr("class", "tooltip2")
 					.attr("x", ${param.column2_tip_offset})
 					.attr("y", 30);
 				
 				dua_dta_focus.append("text")
-					.attr("class", "tooltip-dtas")
+					.attr("class", "tooltip3")
 					.attr("x", ${param.column3_tip_offset})
 					.attr("y", 42);
 			
 				dua_dta_focus.append("text")
-					.attr("class", "tooltip-dtas")
+					.attr("class", "tooltip4")
 					.attr("x", ${param.column4_tip_offset})
 					.attr("y", 54);
 			
@@ -398,7 +398,7 @@
 				var parseDate = d3.timeFormat("%m/%e/%Y").parse,
 					bisectDate_dua_dta = d3.bisector(function(d) { return d.${param.date_column}; }).left,
 					formatValue = d3.format(","),
-					dateFormatter = d3.timeFormat("%m/%d/%y");
+					dateFormatter = d3.timeFormat("%m/%y");
 				
 			
 				function dua_dta_mousemove() {
@@ -416,8 +416,10 @@
 				    };
 				   
 				    dua_dta_focus.select(".tooltip-date_dta_dua").text(dateFormatter(d.${param.date_column}));
-				    dua_dta_focus.select(".tooltip-duas").text(formatValue(d.${param.column1}));
-				    dua_dta_focus.select(".tooltip-dtas").text(formatValue(d.${param.column2}));
+				    dua_dta_focus.select(".tooltip1").text(formatValue(d.${param.column1}));
+				    dua_dta_focus.select(".tooltip2").text(formatValue(d.${param.column2}));
+				    dua_dta_focus.select(".tooltip3").text(formatValue(d.${param.column3}));
+				    dua_dta_focus.select(".tooltip4").text(formatValue(d.${param.column4}));
 				    
 				    tooltipLine.attr('stroke', 'black')
 				    	.attr("transform", "translate(" + ${param.namespace}x(d.${param.date_column}) + "," + 0 + ")")

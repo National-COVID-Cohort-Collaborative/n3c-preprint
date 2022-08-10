@@ -2,6 +2,111 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
+<style>
+.block_header{
+	text-align:center; 
+	color:#fff; 
+	background: #454F82;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:18px; 
+	padding: 3px; 
+	margin-top:20px;
+}
+
+.kpi tr {
+	width: auto;
+}
+
+.block_header{
+	background:none;
+}
+
+.kpi_ind{
+	text-align:center;
+}
+
+.kpi_section .dropdown-item{
+	white-space: unset;
+}
+
+#viz_title{
+	display:none;
+}
+
+#${param.block}_btn_hide{
+	position: absolute;
+    left: 0px;
+    top: 0px;
+    transform: rotate(-90deg) translate(-20px, -77px);
+    border-radius: 0;
+}
+
+
+#${param.block}_btn_show {
+    /* position: absolute; */
+    left: 0px;
+    top: 0px;
+    transform: rotate(-90deg) translate(-24px, 54px);
+    border-radius: 0;
+}
+
+.drop_filter{
+	right: 0;
+	left: auto;
+	width: max-content;
+}
+
+.dash_filter_header{
+	margin-right: 30px;
+    margin-left: 30px;
+}
+
+.show_clear{
+	display: inline-block;
+}
+
+.no_clear{
+	display:none;
+}
+
+.show_filt:after{
+	border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
+.hide_filt:after{
+	border-top: 0;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0.3em solid;
+    border-left: 0.3em solid transparent;
+}
+
+.viz_options_dropdown{
+	text-align: left; 
+	font-size: 1.2rem;
+}
+.filter_button_container{
+	text-align:right;
+}
+
+@media (max-width: 768px) {
+  .viz_options_dropdown, 
+  .filter_button_container{
+    text-align: center;
+  }
+}
+
+.select2-container--default .select2-results__option--disabled{
+	display:none;
+}
+
+.dash_viz{
+	text-align:center;
+}
+
+</style>
 <div class="row">
 	<div class="col-sm-3">
 		<div class="panel panel-primary">
@@ -39,32 +144,67 @@
 			<div class="panel-body">
 				<div id="home-line-wrapper"></div>
 			</div>
-		<div id="timeline">
-			<div id="timeline_graph"></div>
-			<jsp:include page="graph_support/time_line_4_column.jsp">
-				<jsp:param name="data_page" value="feeds/total_source_by_week.jsp" />
-				<jsp:param name="dom_element" value="#timeline" />
-				<jsp:param name="namespace" value="timeline" />
-				<jsp:param name="date_column" value="week" />
-				<jsp:param name="column1" value="pmc" />
-				<jsp:param name="column1_label" value="# of Manuscripts" />
-				<jsp:param name="column1_tip" value="PMC" />
-				<jsp:param name="column1_tip_offset" value="75" />
-				<jsp:param name="column2" value="litcovid" />
-				<jsp:param name="column2_label" value="LITCOVID" />
-				<jsp:param name="column2_tip" value="LITCOVID" />
-				<jsp:param name="column2_tip_offset" value="75" />
-				<jsp:param name="useColumn2Scaling" value="true" />
-				<jsp:param name="column3" value="biorxiv" />
-				<jsp:param name="column3_label" value="bioRxiv" />
-				<jsp:param name="column3_tip" value="bioRxiv" />
-				<jsp:param name="column3_tip_offset" value="75" />
-				<jsp:param name="column4" value="medrxiv" />
-				<jsp:param name="column4_label" value="medRxiv" />
-				<jsp:param name="column4_tip" value="medRxiv" />
-				<jsp:param name="column4_tip_offset" value="75" />
-			</jsp:include>
-		</div>
+			<div id="timeline">
+				<div id="timeline_graph"></div>
+				<jsp:include page="graph_support/time_line_4_column.jsp">
+					<jsp:param name="data_page" value="feeds/total_source_by_month.jsp" />
+					<jsp:param name="dom_element" value="#timeline" />
+					<jsp:param name="namespace" value="timeline" />
+					<jsp:param name="date_column" value="month" />
+					<jsp:param name="column1" value="pmc" />
+					<jsp:param name="column1_label" value="# of Manuscripts" />
+					<jsp:param name="column1_tip" value="PMC" />
+					<jsp:param name="column1_tip_offset" value="75" />
+					<jsp:param name="column2" value="litcovid" />
+					<jsp:param name="column2_label" value="LITCOVID" />
+					<jsp:param name="column2_tip" value="LITCOVID" />
+					<jsp:param name="column2_tip_offset" value="75" />
+					<jsp:param name="useColumn2Scaling" value="true" />
+					<jsp:param name="column3" value="biorxiv" />
+					<jsp:param name="column3_label" value="bioRxiv" />
+					<jsp:param name="column3_tip" value="bioRxiv" />
+					<jsp:param name="column3_tip_offset" value="75" />
+					<jsp:param name="column4" value="medrxiv" />
+					<jsp:param name="column4_label" value="medRxiv" />
+					<jsp:param name="column4_tip" value="medRxiv" />
+					<jsp:param name="column4_tip_offset" value="75" />
+				</jsp:include>
+			</div>
+<jsp:include page="filters/source.jsp">
+	<jsp:param value="table" name="block"/>
+</jsp:include>
+			<div id="timeline2">
+			<script type="text/javascript">
+				var categorical8 = ["#09405A", "#AD1181", "#8406D1", "#ffa600", "#ff7155", "#4833B2", "#007BFF", "#a6a6a6"];
+
+				async function load() {
+					const response = await fetch('feeds/total_source_by_month2.jsp');
+					const data = await response.json();
+					for (let i = 0; i < data.length; i++) {
+						data[i].date = new Date(data[i].date+"-02")
+					}
+					console.log(data); 
+
+					var properties = {
+							domName: "timeline2",
+							legend_labels: ['biorxiv', "medrxiv", "litcovid", "pmc"],
+							xaxis_label: "Month",
+							yaxis_label: "publication Count"
+						}
+
+					TimeLineNColumnChart(data, properties);	
+				}
+				load();
+		</script>
+			</div>
+			<div id="table">
+				<div id="table-div"></div>
+				<jsp:include page="tables/timeline_table.jsp">
+					<jsp:param name="feed" value="feeds/total_source_by_month3.jsp" />
+					<jsp:param name="block" value="table" />
+					<jsp:param name="target_div" value="table-div" />
+				</jsp:include>
+			</div>
 		</div>
 	</div>
 </div>

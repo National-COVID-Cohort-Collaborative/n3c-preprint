@@ -3,7 +3,6 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 <!DOCTYPE html>
 <html>
-<jsp:include page="head.jsp" flush="true" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -16,6 +15,7 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+<jsp:include page="head.jsp" flush="true" />
 <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 <script src="resources/dataTables.rowsGroup.js"></script>
@@ -24,9 +24,6 @@
 <script src="resources/he.js"></script>
 <script src="resources/d3RangeSlider.js"></script>
 
-<style type="text/css" media="all">
-@import "resources/n3c_login_style.css";
-</style>
     <link href="resources/d3RangeSlider.css" rel="stylesheet">
 
 <style type="text/css">
@@ -36,6 +33,7 @@ table.dataTable thead .sorting_asc {
 </style>
 
 <body>
+<jsp:include page="graph_support/time_line_n_column_local.jsp"/>
 
 	<jsp:include page="navbar.jsp" flush="true" />
 
