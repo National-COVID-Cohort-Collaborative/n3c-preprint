@@ -102,7 +102,7 @@ function TimeLineNColumnChart(data, properties) {
 	    height = 600 - margin.top - margin.bottom;
 	
 	console.log("data", data)
-	var keys =  Object.keys(data[0].elements);
+	var keys =  Object.getOwnPropertyNames(data[0].elements);
 	var maxCount = 0;
 	for (let i = 0; i < data.length; i++) {
 		for (let j = 0; j < keys.length; j++) {
@@ -282,10 +282,7 @@ function TimeLineNColumnChart(data, properties) {
 					.text(function (d) {return d;})
 					.on("click", function(d, i){
 						console.log("legend click",d,i)
-						table_constrain_table(d);
-						var format = {};
-						format['secondary_name'] = d;
-						//window[properties.domName.replace(/_[^_]+_[^_]+$/i,'_')+'viz_constrain'](format, "Medications"); 
+						window[properties.block+'_viz_constrain'](d); 
 					})
 				    .attr("transform", "translate(25, 6)"); //align texts with boxes
 	
@@ -298,10 +295,7 @@ function TimeLineNColumnChart(data, properties) {
 				    })
 					.on("click", function(d, i){
 						console.log("legend click",d,i)
-						table_constrain_table(d);
-						var format = {};
-						format['secondary_name'] = d;
-						//window[properties.domName.replace(/_[^_]+_[^_]+$/i,'_')+'viz_constrain'](format, "Medications"); 
+						window[properties.block+'_viz_constrain'](d); 
 					})
 				    .attr("stroke-width", '2.8px')
 				    .attr('height', 2);

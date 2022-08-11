@@ -140,40 +140,11 @@
 	</div>
 	<div class="col-sm-9">
 		<div class="panel panel-primary">
-			<div class="panel-heading">Publication Counts by Week</div>
-			<div class="panel-body">
-				<div id="home-line-wrapper"></div>
-			</div>
-			<div id="timeline">
-				<div id="timeline_graph"></div>
-				<jsp:include page="graph_support/time_line_4_column.jsp">
-					<jsp:param name="data_page" value="feeds/total_source_by_month.jsp" />
-					<jsp:param name="dom_element" value="#timeline" />
-					<jsp:param name="namespace" value="timeline" />
-					<jsp:param name="date_column" value="month" />
-					<jsp:param name="column1" value="pmc" />
-					<jsp:param name="column1_label" value="# of Manuscripts" />
-					<jsp:param name="column1_tip" value="PMC" />
-					<jsp:param name="column1_tip_offset" value="75" />
-					<jsp:param name="column2" value="litcovid" />
-					<jsp:param name="column2_label" value="LITCOVID" />
-					<jsp:param name="column2_tip" value="LITCOVID" />
-					<jsp:param name="column2_tip_offset" value="75" />
-					<jsp:param name="useColumn2Scaling" value="true" />
-					<jsp:param name="column3" value="biorxiv" />
-					<jsp:param name="column3_label" value="bioRxiv" />
-					<jsp:param name="column3_tip" value="bioRxiv" />
-					<jsp:param name="column3_tip_offset" value="75" />
-					<jsp:param name="column4" value="medrxiv" />
-					<jsp:param name="column4_label" value="medRxiv" />
-					<jsp:param name="column4_tip" value="medRxiv" />
-					<jsp:param name="column4_tip_offset" value="75" />
-				</jsp:include>
-			</div>
-<jsp:include page="filters/source.jsp">
-	<jsp:param value="table" name="block"/>
-</jsp:include>
-			<div id="timeline2">
+			<div class="panel-heading">Publication Counts by Month</div>
+			<jsp:include page="filters/source.jsp">
+				<jsp:param value="home_table" name="block"/>
+			</jsp:include>
+			<div id="home_timeline">
 			<script type="text/javascript">
 				var categorical8 = ["#09405A", "#AD1181", "#8406D1", "#ffa600", "#ff7155", "#4833B2", "#007BFF", "#a6a6a6"];
 
@@ -183,25 +154,31 @@
 					for (let i = 0; i < data.length; i++) {
 						data[i].date = new Date(data[i].date+"-02")
 					}
-					console.log(data); 
-
-					var properties = {
-							domName: "timeline2",
-							legend_labels: ['biorxiv', "medrxiv", "litcovid", "pmc"],
-							xaxis_label: "Month",
-							yaxis_label: "publication Count"
-						}
-
-					TimeLineNColumnChart(data, properties);	
+					timeline_refresh(data);
 				}
 				load();
-		</script>
+				
+				function timeline_refresh(data) {
+					//console.log(data); 
+
+					var properties = {
+							block: "home_table",
+							domName: "home_timeline",
+							legend_labels: ['biorxiv', "medrxiv", "litcovid", "pmc"],
+							xaxis_label: "Month",
+							yaxis_label: "Publication Count"
+						}
+
+				   	d3.select("#home_timeline").select("svg").remove();
+					TimeLineNColumnChart(data, properties);						
+				}
+			</script>
 			</div>
 			<div id="table">
 				<div id="table-div"></div>
 				<jsp:include page="tables/timeline_table.jsp">
-					<jsp:param name="feed" value="feeds/total_source_by_month3.jsp" />
-					<jsp:param name="block" value="table" />
+					<jsp:param name="feed" value="feeds/total_source_by_month.jsp" />
+					<jsp:param name="block" value="home_table" />
 					<jsp:param name="target_div" value="table-div" />
 				</jsp:include>
 			</div>
@@ -264,11 +241,6 @@
 		</div>
 	</div>
 </div>
-
-<jsp:include page="graph_support/multiline.jsp">
-	<jsp:param name="data_page" value="feeds/total_by_source_count_weekly.jsp" />
-	<jsp:param name="dom_element" value="#home-line-wrapper" />
-</jsp:include>
 
 <jsp:include page="graph_support/verticalBarChart.jsp">
 	<jsp:param name="data_page" value="feeds/ncats_drugs_distinct_count.jsp" />

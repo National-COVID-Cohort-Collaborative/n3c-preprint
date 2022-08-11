@@ -33,7 +33,6 @@ WebContent/feeds/pubchem_substances_distinct_count.jsp -text
 WebContent/feeds/total_by_source_count_weekly.jsp -text
 WebContent/feeds/total_source_by_month.jsp -text
 WebContent/feeds/total_source_by_month2.jsp -text
-WebContent/feeds/total_source_by_month3.jsp -text
 WebContent/feeds/total_source_by_week.jsp -text
 WebContent/filters/source.jsp -text
 WebContent/footer.jsp -text
