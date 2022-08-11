@@ -110,6 +110,10 @@ function TimeLineNColumnChart(data, properties) {
 		}
 	};
 	console.log("maxCount", maxCount, "keys", keys)
+	
+	var aspectRatio = 1.75;
+	if (properties.aspectRatio != undefined)
+		aspectRatio = properties.aspectRatio;
 
 	var column1_label = properties.yaxis_label;
 		var column_tip_offset = 120;
@@ -122,8 +126,8 @@ function TimeLineNColumnChart(data, properties) {
 				if (newWidth > 0) {
 					d3.select("#"+properties.domName).select("svg").remove();
 					width = newWidth - margin.left - margin.right;
-					if ((width/1.75 - margin.top - margin.bottom) > 200){
-						height = width/1.75 - margin.top - margin.bottom;
+					if ((width/aspectRatio - margin.top - margin.bottom) > 200){
+						height = width/aspectRatio - margin.top - margin.bottom;
 					} else { 
 						height = 200;
 					}

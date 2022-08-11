@@ -165,6 +165,7 @@
 							block: "home_table",
 							domName: "home_timeline",
 							legend_labels: ['biorxiv', "medrxiv", "litcovid", "pmc"],
+							aspectRatio: 2,
 							xaxis_label: "Month",
 							yaxis_label: "Publication Count"
 						}
