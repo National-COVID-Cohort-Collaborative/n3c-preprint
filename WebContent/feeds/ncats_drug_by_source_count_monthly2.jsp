@@ -2,7 +2,8 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
 <sql:query var="drugs" dataSource="jdbc/N3CCohort">
-	select month,coalesce(medrxiv,0) as medrxiv,coalesce(biorxiv,0) as biorxiv,coalesce(litcovid,0) as litcovid,coalesce(pmc,0) as pmc from covid.total_source_by_month
+	select month,coalesce(medrxiv,0) as medrxiv,coalesce(biorxiv,0) as biorxiv,coalesce(litcovid,0) as litcovid,coalesce(pmc,0) as pmc from covid_ncats.source_by_month where medication = ?
+	<sql:param>${param.drug}</sql:param>
 </sql:query>
 [
 <c:forEach items="${drugs.rows}" var="row" varStatus="rowCounter">

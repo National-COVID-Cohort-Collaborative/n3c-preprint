@@ -16,6 +16,8 @@ WebContent/feeds/n3c_drug.jsp -text
 WebContent/feeds/n3c_drug_by_source_count_weekly.jsp -text
 WebContent/feeds/n3c_drugs_distinct_count.jsp -text
 WebContent/feeds/ncats_drug.jsp -text
+WebContent/feeds/ncats_drug_by_source_count_monthly.jsp -text
+WebContent/feeds/ncats_drug_by_source_count_monthly2.jsp -text
 WebContent/feeds/ncats_drug_by_source_count_weekly.jsp -text
 WebContent/feeds/ncats_drugs_distinct_count.jsp -text
 WebContent/feeds/pubchem_compound.jsp -text

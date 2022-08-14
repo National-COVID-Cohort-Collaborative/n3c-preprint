@@ -67,6 +67,48 @@
 					<jsp:param name="dom_element" value="#ncats-drug-line-wrapper" />
 				</jsp:include>
 			</div>
+			<jsp:include page="../filters/source.jsp">
+				<jsp:param value="ncats_table" name="block"/>
+			</jsp:include>
+			<div id="ncats_timeline">
+			<script type="text/javascript">
+				var categorical8 = ["#09405A", "#AD1181", "#8406D1", "#ffa600", "#ff7155", "#4833B2", "#007BFF", "#a6a6a6"];
+
+				async function ncats_table_load() {
+					const response = await fetch('feeds/ncats_drug_by_source_count_monthly2.jsp?drug=${target}');
+					const data = await response.json();
+					for (let i = 0; i < data.length; i++) {
+						data[i].date = new Date(data[i].date+"-02")
+					}
+					ncats_table_timeline_refresh(data);
+				}
+				ncats_table_load();
+				
+				function ncats_table_timeline_refresh(data) {
+					//console.log(data); 
+
+					var properties = {
+							block: "ncats_table",
+							domName: "ncats_timeline",
+							legend_labels: ['biorxiv', "medrxiv", "litcovid", "pmc"],
+							aspectRatio: 2,
+							xaxis_label: "Month",
+							yaxis_label: "Publication Count"
+						}
+
+				   	d3.select("#ncats_timeline").select("svg").remove();
+					TimeLineNColumnChart(data, properties);						
+				}
+			</script>
+			</div>
+			<div id="ncats_wrapper">
+				<div id="ncats-div"></div>
+				<jsp:include page="../tables/timeline_table.jsp">
+					<jsp:param name="feed" value="feeds/ncats_drug_by_source_count_monthly.jsp?drug=${target}" />
+					<jsp:param name="block" value="ncats_table" />
+					<jsp:param name="target_div" value="ncats-div" />
+				</jsp:include>
+			</div>
 		</div>
 	</div>
 </div>

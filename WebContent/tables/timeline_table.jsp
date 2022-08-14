@@ -53,7 +53,7 @@ function ${param.block}_constrain_table(filter) {
 
 	constrainedData.sort((a,b) => (a.month > b.month) ? 1 : ((b.month > a.month) ? -1 : 0));
 	//console.log("refreshed array", constrainedData);
-	timeline_refresh(constrainedData);
+	${param.block}_timeline_refresh(constrainedData);
 }
 
 var ${param.block}_datatable = null;

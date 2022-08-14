@@ -10,6 +10,7 @@
 		<option value="litcovid">LitCovid</option>
 		<option value="pmc">PMC</option>
 	</select>
+	<button onclick="$('#${param.block}-source-select').multiselect('deselectAll', false); ${param.block}_constrain_table([]);">Clear</button>
 </div>
 <script type="text/javascript">
 $(document).ready(function() {

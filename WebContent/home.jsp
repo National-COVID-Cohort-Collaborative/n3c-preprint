@@ -148,17 +148,17 @@
 			<script type="text/javascript">
 				var categorical8 = ["#09405A", "#AD1181", "#8406D1", "#ffa600", "#ff7155", "#4833B2", "#007BFF", "#a6a6a6"];
 
-				async function load() {
+				async function home_load() {
 					const response = await fetch('feeds/total_source_by_month2.jsp');
 					const data = await response.json();
 					for (let i = 0; i < data.length; i++) {
 						data[i].date = new Date(data[i].date+"-02")
 					}
-					timeline_refresh(data);
+					home_table_timeline_refresh(data);
 				}
-				load();
+				home_load();
 				
-				function timeline_refresh(data) {
+				function home_table_timeline_refresh(data) {
 					//console.log(data); 
 
 					var properties = {
@@ -175,13 +175,13 @@
 				}
 			</script>
 			</div>
-			<div id="table">
+			<div id="home_wrapper">
 				<div id="table-div"></div>
-				<jsp:include page="tables/timeline_table.jsp">
-					<jsp:param name="feed" value="feeds/total_source_by_month.jsp" />
-					<jsp:param name="block" value="home_table" />
-					<jsp:param name="target_div" value="table-div" />
-				</jsp:include>
+			<jsp:include page="tables/timeline_table.jsp">
+				<jsp:param name="feed" value="feeds/total_source_by_month.jsp" />
+				<jsp:param name="block" value="home_table" />
+				<jsp:param name="target_div" value="table-div" />
+			</jsp:include>
 			</div>
 		</div>
 	</div>
