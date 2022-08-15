@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 <script>
 
@@ -15,6 +16,13 @@ function ${param.block}_constrain_table(filter) {
 		table.column(3).visible(true);
 		table.column(4).visible(true);		
 	}
+
+	<c:if test="${not empty param.text_table}">
+		var join = (filter.length == 0 ? "" : ("^" + filter.join("|") + "$"));
+		console.log("join", join)
+		var textTable = $('#${param.text_table}').DataTable();
+		textTable.column(3).search(join, true, false, true).draw();	
+	</c:if>
 
 	var data = table.data().toArray();
 	//console.log("current data", data, table.column(1).visible())
@@ -65,6 +73,10 @@ function ${param.block}_constraint(begin, end) {
 	${param.block}_constraint_end = end;
 	var table = $('#${param.target_div}-table').DataTable();
 	table.draw();
+	<c:if test="${not empty param.text_table}">
+		var textTable = $('#${param.text_table}').DataTable();
+		textTable.draw();
+	</c:if>
 }
 
 $(document).ready( function () {
@@ -72,8 +84,13 @@ $(document).ready( function () {
 		    function( settings, searchData, index, rowData, counter ) {
 		    	if (${param.block}_constraint_begin == null)
 		    		return true;
-		    	if (${param.block}_constraint_begin <= searchData[0] && searchData[0] <= ${param.block}_constraint_end)
-		    		return true;
+		    	 if ('${param.target_div}-table' === settings.sTableId) {
+		    		 if (${param.block}_constraint_begin <= searchData[0] && searchData[0] <= ${param.block}_constraint_end)
+			    		return true;
+		    	 } else {
+		    		 if (${param.block}_constraint_begin <= searchData[4] && searchData[4] <= ${param.block}_constraint_end)
+				    	return true;		    		 
+		    	 }
 		    	
 		    	return false;
 		    }

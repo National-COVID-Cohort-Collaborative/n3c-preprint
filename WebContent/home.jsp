@@ -167,7 +167,8 @@
 							legend_labels: ['biorxiv', "medrxiv", "litcovid", "pmc"],
 							aspectRatio: 2,
 							xaxis_label: "Month",
-							yaxis_label: "Publication Count"
+							yaxis_label: "Publication Count",
+							constraintPropagator: home_table_constraint
 						}
 
 				   	d3.select("#home_timeline").select("svg").remove();

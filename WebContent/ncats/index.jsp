@@ -108,6 +108,7 @@
 					<jsp:param name="feed" value="feeds/ncats_drug_by_source_count_monthly.jsp?drug=${target}" />
 					<jsp:param name="block" value="ncats_table" />
 					<jsp:param name="target_div" value="ncats-div" />
+					<jsp:param name="text_table" value="ncats_drug_table_inner" />
 				</jsp:include>
 			</div>
 		</div>
