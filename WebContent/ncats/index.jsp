@@ -8,7 +8,7 @@
 		var summary = document.getElementById("ncats-drug-summary-heading");
 		summary.innerHTML = mode + " Summary";
 		var graph = document.getElementById("ncats-drug-graph-heading");
-		graph.innerHTML = mode + " Publication Counts by Week";
+		graph.innerHTML = mode + " Publication Counts by Month";
 		var mention = document.getElementById("ncats-drug-mention-heading");
 		mention.innerHTML = mode + " Mentions";
 		var footer = document.getElementById("ncats-drug-panel-footer");
@@ -18,12 +18,9 @@
 			divContainer.innerHTML = "";
 			divContainer.append(fragment);
 		});
-		d3.html("ncats/ncats_drug_plot_by_source.jsp?drug=" + mode,
-				function(fragment) {
-					var divContainer = document.getElementById("ncats-drug-panel-body");
-					divContainer.innerHTML = "";
-					divContainer.append(fragment);
-				});
+		ncats_table_load(mode);
+		ncats_table_reload(mode);
+		
 		d3.html("tables/ncats_drug.jsp?drug="+mode, function(fragment) {
 			var divContainer = document.getElementById("ncats_drug_target_table");
 			divContainer.innerHTML = "";
@@ -33,6 +30,16 @@
 		$('.nav-tabs a[href="#ncats_drugs"]').tab('show');
 	}
 
+
+	async function ncats_table_reload(drug) {
+		const response = await fetch('feeds/ncats_drug_by_source_count_monthly.jsp?drug=' + drug);
+		var newDataArray = await response.json();
+		console.log("new data", newDataArray)
+		var datatable = $("#ncats-div-table").DataTable();
+		datatable.clear();
+		datatable.rows.add(newDataArray.rows);
+		datatable.draw();
+	}
 </script>
 
 <form action="index.jsp">
@@ -59,14 +66,7 @@
 	</div>
 	<div class="col-sm-9">
 		<div class="panel panel-primary">
-			<div class="panel-heading" id="ncats-drug-graph-heading">Publication Counts by Week</div>
-			<div class="panel-body" id="ncats-drug-panel-body">
-				<div id="ncats-drug-line-wrapper"></div>
-				<jsp:include page="../graph_support/multiline.jsp">
-					<jsp:param name="data_page"	value="feeds/ncats_drug_by_source_count_weekly.jsp?drug=${target}" />
-					<jsp:param name="dom_element" value="#ncats-drug-line-wrapper" />
-				</jsp:include>
-			</div>
+			<div class="panel-heading" id="ncats-drug-graph-heading">Publication Counts by Month</div>
 			<jsp:include page="../filters/source.jsp">
 				<jsp:param value="ncats_table" name="block"/>
 			</jsp:include>
@@ -74,15 +74,15 @@
 			<script type="text/javascript">
 				var categorical8 = ["#09405A", "#AD1181", "#8406D1", "#ffa600", "#ff7155", "#4833B2", "#007BFF", "#a6a6a6"];
 
-				async function ncats_table_load() {
-					const response = await fetch('feeds/ncats_drug_by_source_count_monthly2.jsp?drug=${target}');
+				async function ncats_table_load(drug) {console.log("ncats call", drug)
+					const response = await fetch('feeds/ncats_drug_by_source_count_monthly2.jsp?drug='+drug);
 					const data = await response.json();
 					for (let i = 0; i < data.length; i++) {
 						data[i].date = new Date(data[i].date+"-02")
 					}
 					ncats_table_timeline_refresh(data);
 				}
-				ncats_table_load();
+				ncats_table_load("${target}");
 				
 				function ncats_table_timeline_refresh(data) {
 					//console.log(data); 

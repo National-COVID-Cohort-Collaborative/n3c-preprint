@@ -71,7 +71,6 @@ WebContent/n3c/index.jsp -text
 WebContent/navbar.jsp -text
 WebContent/ncats/index.jsp -text
 WebContent/ncats/ncats_drug_count_by_source.jsp -text
-WebContent/ncats/ncats_drug_plot_by_source.jsp -text
 WebContent/pubchem/compound_count_by_source.jsp -text
 WebContent/pubchem/compound_plot_by_source.jsp -text
 WebContent/pubchem/compounds.jsp -text
