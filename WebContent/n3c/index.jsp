@@ -7,8 +7,8 @@
 	function drug_render(mode) {
 		var summary = document.getElementById("drug-summary-heading");
 		summary.innerHTML = mode + " Summary";
-		var graph = document.getElementById("drug-graph-heading");
-		graph.innerHTML = mode + " Preprint Counts by Week";
+		var graph = document.getElementById("n3c-drug-graph-heading");
+		graph.innerHTML = mode + " Preprint Counts by Month";
 		var mention = document.getElementById("drug-mention-heading");
 		mention.innerHTML = mode + " Mentions";
 		var footer = document.getElementById("drug-panel-footer");
@@ -18,12 +18,10 @@
 			divContainer.innerHTML = "";
 			divContainer.append(fragment);
 		});
-		d3.html("n3c/drug_plot_by_source.jsp?drug=" + mode,
-				function(fragment) {
-					var divContainer = document.getElementById("drug-panel-body");
-					divContainer.innerHTML = "";
-					divContainer.append(fragment);
-				});
+
+		n3c_table_load(mode);
+		n3c_table_reload(mode);
+		
 		d3.html("tables/n3c_drug.jsp?drug="+mode, function(fragment) {
 			var divContainer = document.getElementById("drug_target_table");
 			divContainer.innerHTML = "";
@@ -33,6 +31,15 @@
 		$('.nav-tabs a[href="#drugs"]').tab('show');
 	}
 
+	async function n3c_table_reload(drug) {
+		const response = await fetch('feeds/n3c_drug_by_source_count_monthly.jsp?drug=' + drug);
+		var newDataArray = await response.json();
+		console.log("new data", newDataArray)
+		var datatable = $("#n3c-div-table").DataTable();
+		datatable.clear();
+		datatable.rows.add(newDataArray.rows);
+		datatable.draw();
+	}
 </script>
 
 <form action="index.jsp">
@@ -59,12 +66,49 @@
 	</div>
 	<div class="col-sm-9">
 		<div class="panel panel-primary">
-			<div class="panel-heading" id="drug-graph-heading">Preprint Counts by Week</div>
-			<div class="panel-body" id="drug-panel-body">
-				<div id="drug-line-wrapper"></div>
-				<jsp:include page="../graph_support/multiline.jsp">
-					<jsp:param name="data_page"	value="feeds/n3c_drug_by_source_count_weekly.jsp?drug=${target}" />
-					<jsp:param name="dom_element" value="#drug-line-wrapper" />
+			<div class="panel-heading" id="n3c-drug-graph-heading">Publication Counts by Month</div>
+			<jsp:include page="../filters/source.jsp">
+				<jsp:param value="n3c_table" name="block"/>
+			</jsp:include>
+			<div id="n3c_timeline">
+			<script type="text/javascript">
+				var categorical8 = ["#09405A", "#AD1181", "#8406D1", "#ffa600", "#ff7155", "#4833B2", "#007BFF", "#a6a6a6"];
+
+				async function n3c_table_load(drug) {console.log("n3c call", drug)
+					const response = await fetch('feeds/n3c_drug_by_source_count_monthly2.jsp?drug='+drug);
+					const data = await response.json();
+					for (let i = 0; i < data.length; i++) {
+						data[i].date = new Date(data[i].date+"-02")
+					}
+					n3c_table_timeline_refresh(data);
+				}
+				n3c_table_load("${target}");
+				
+				function n3c_table_timeline_refresh(data) {
+					//console.log(data); 
+
+					var properties = {
+							block: "n3c_table",
+							domName: "n3c_timeline",
+							legend_labels: ['biorxiv', "medrxiv", "litcovid", "pmc"],
+							aspectRatio: 2,
+							xaxis_label: "Month",
+							yaxis_label: "Publication Count",
+							constraintPropagator: n3c_table_constraint
+						}
+
+				   	d3.select("#n3c_timeline").select("svg").remove();
+					TimeLineNColumnChart(data, properties);						
+				}
+			</script>
+			</div>
+			<div id="n3c_wrapper">
+				<div id="n3c-div"></div>
+				<jsp:include page="../tables/timeline_table.jsp">
+					<jsp:param name="feed" value="feeds/n3c_drug_by_source_count_monthly.jsp?drug=${target}" />
+					<jsp:param name="block" value="n3c_table" />
+					<jsp:param name="target_div" value="n3c-div" />
+					<jsp:param name="text_table" value="drug_table_inner" />
 				</jsp:include>
 			</div>
 		</div>

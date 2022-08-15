@@ -18,6 +18,7 @@
 			divContainer.innerHTML = "";
 			divContainer.append(fragment);
 		});
+
 		ncats_table_load(mode);
 		ncats_table_reload(mode);
 		
@@ -29,7 +30,6 @@
 		d3.select("#ncats_drug_mode").property("value", mode);
 		$('.nav-tabs a[href="#ncats_drugs"]').tab('show');
 	}
-
 
 	async function ncats_table_reload(drug) {
 		const response = await fetch('feeds/ncats_drug_by_source_count_monthly.jsp?drug=' + drug);
@@ -74,7 +74,7 @@
 			<script type="text/javascript">
 				var categorical8 = ["#09405A", "#AD1181", "#8406D1", "#ffa600", "#ff7155", "#4833B2", "#007BFF", "#a6a6a6"];
 
-				async function ncats_table_load(drug) {console.log("ncats call", drug)
+				async function ncats_table_load(drug) {
 					const response = await fetch('feeds/ncats_drug_by_source_count_monthly2.jsp?drug='+drug);
 					const data = await response.json();
 					for (let i = 0; i < data.length; i++) {
