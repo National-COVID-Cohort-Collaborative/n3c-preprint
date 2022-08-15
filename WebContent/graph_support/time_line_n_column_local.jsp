@@ -419,10 +419,11 @@ function TimeLineNColumnChart(data, properties) {
 				     	if(!extent){
 				        	if (!idleTimeout) return idleTimeout = setTimeout(idled, 350); // This allows to wait a little bit
 				        	x.domain([startDate, endDate]);
+							if (properties.constraintPropagator != undefined)
+				        		properties.constraintPropagator(null, null);
 				      	}else{
-				        	<c:if test="${not empty param.constraintPropagator}">
-				        		${param.block}_${param.constraintPropagator}(dateFormatter2(x.invert(extent[0])),dateFormatter2(x.invert(extent[1])))
-				        	</c:if>
+				        	if (properties.constraintPropagator != undefined)
+				        		properties.constraintPropagator(dateFormatter2(x.invert(extent[0])),dateFormatter2(x.invert(extent[1])));
 				      		x.domain([ x.invert(extent[0]), x.invert(extent[1]) ]);
 				        	graph.select(".brush").call(brush.move, null); // This remove the grey brush area as soon as the selection has been done
 				      	}
@@ -463,9 +464,8 @@ function TimeLineNColumnChart(data, properties) {
 				};
 				
 				function time_line_clear(){
-		        	<c:if test="${not empty param.constraintPropagator}">
-						${param.block}_${param.constraintPropagator}(null, null)
-		        	</c:if>
+					if (properties.constraintPropagator != undefined)
+		        		properties.constraintPropagator(null, null);
 					
 					x.domain([startDate, endDate]);
 					

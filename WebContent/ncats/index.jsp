@@ -93,7 +93,8 @@
 							legend_labels: ['biorxiv', "medrxiv", "litcovid", "pmc"],
 							aspectRatio: 2,
 							xaxis_label: "Month",
-							yaxis_label: "Publication Count"
+							yaxis_label: "Publication Count",
+							constraintPropagator: ncats_table_constraint
 						}
 
 				   	d3.select("#ncats_timeline").select("svg").remove();

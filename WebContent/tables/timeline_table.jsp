@@ -56,6 +56,30 @@ function ${param.block}_constrain_table(filter) {
 	${param.block}_timeline_refresh(constrainedData);
 }
 
+var ${param.block}_constraint_begin = null,
+	${param.block}_constraint_end = null;
+
+function ${param.block}_constraint(begin, end) {
+	//console.log("constraint", begin, end)
+	${param.block}_constraint_begin = begin;
+	${param.block}_constraint_end = end;
+	var table = $('#${param.target_div}-table').DataTable();
+	table.draw();
+}
+
+$(document).ready( function () {
+	$.fn.dataTable.ext.search.push(
+		    function( settings, searchData, index, rowData, counter ) {
+		    	if (${param.block}_constraint_begin == null)
+		    		return true;
+		    	if (${param.block}_constraint_begin <= searchData[0] && searchData[0] <= ${param.block}_constraint_end)
+		    		return true;
+		    	
+		    	return false;
+		    }
+		);
+});
+
 var ${param.block}_datatable = null;
 
 $.getJSON("<util:applicationRoot/>/${param.feed}", function(data){
