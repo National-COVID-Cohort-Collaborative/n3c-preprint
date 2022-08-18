@@ -32,6 +32,34 @@ $.getJSON("feeds/pubchem_compound.jsp?compound=${param.compound}", function(data
 
 	$('#compound_table_inner').DataTable( {
     	data: data,
+    	dom: 'lfr<"datatable_overflow"t>Bip',
+    	buttons: {
+    	    dom: {
+    	      button: {
+    	        tag: 'button',
+    	        className: ''
+    	      }
+    	    },
+    	    buttons: [{
+    	      extend: 'csv',
+    	      className: 'btn btn-sm btn-light',
+    	      titleAttr: 'CSV export.',
+    	      exportOptions: {
+                  columns: ':visible'
+              },
+    	      text: 'CSV',
+    	      filename: 'pubchem_compound',
+    	      extension: '.csv'
+    	    }, {
+    	      extend: 'copy',
+    	      className: 'btn btn-sm btn-light',
+    	      titleAttr: 'Copy table data.',
+    	      exportOptions: {
+                  columns: ':visible'
+              },
+    	      text: 'Copy'
+    	    }]
+    	},
        	paging: true,
     	pageLength: 10,
     	lengthMenu: [ 10, 25, 50, 75, 100 ],

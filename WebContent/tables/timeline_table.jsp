@@ -132,7 +132,34 @@ $.getJSON("<util:applicationRoot/>/${param.feed}", function(data){
 	${param.block}_datatable = $('#${param.target_div}-table').DataTable( {
     	data: data,
     	dom: 'lfr<"datatable_overflow"t>Bip',
-        	paging: true,
+    	buttons: {
+    	    dom: {
+    	      button: {
+    	        tag: 'button',
+    	        className: ''
+    	      }
+    	    },
+    	    buttons: [{
+    	      extend: 'csv',
+    	      className: 'btn btn-sm btn-light',
+    	      titleAttr: 'CSV export.',
+    	      exportOptions: {
+                  columns: ':visible'
+              },
+    	      text: 'CSV',
+    	      filename: 'timeline',
+    	      extension: '.csv'
+    	    }, {
+    	      extend: 'copy',
+    	      className: 'btn btn-sm btn-light',
+    	      titleAttr: 'Copy table data.',
+    	      exportOptions: {
+                  columns: ':visible'
+              },
+    	      text: 'Copy'
+    	    }]
+    	},
+       	paging: true,
        	snapshot: null,
        	initComplete: function( settings, json ) {
        	 	settings.oInit.snapshot = $('#${param.target_div}-table').DataTable().rows({order: 'index'}).data().toArray().toString();
