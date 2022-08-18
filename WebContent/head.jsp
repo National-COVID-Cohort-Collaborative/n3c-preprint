@@ -15,6 +15,12 @@
      <meta name="viewport" content="width=device-width, initial-scale=1">
 	 <title>N3C COVID-19 Preprint Explorer</title>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 	<!-- bootstrap CSS -->
 	<link href="<util:applicationRoot/>/resources/bootstrap/css/bootstrap.css" rel="stylesheet" >
 	<script src="<util:applicationRoot/>/resources/anime.min.js"></script>
@@ -63,6 +69,11 @@
 	<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 	<script src="<util:applicationRoot/>/resources/slider.min.js"></script>
 	
+	<script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
+	<script src="resources/he.js"></script>
+	<script src="resources/d3RangeSlider.js"></script>
+
+    <link href="resources/d3RangeSlider.css" rel="stylesheet">
 
 	 <script src="https://cdn.rawgit.com/eligrey/canvas-toBlob.js/f1a01896135ab378aa5c0118eadd81da55e698d8/canvas-toBlob.js"></script>
 	 <script src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"></script>
@@ -70,4 +81,11 @@
 	
 	<!-- local stylesheets -->
 	<link rel="stylesheet" href="<util:applicationRoot/>/resources/n3c_login_style.css">
+
+<style type="text/css">
+table.dataTable thead .sorting_asc {
+	background-image: none !important;
+}
+</style>
+
 </head>
