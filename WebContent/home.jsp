@@ -175,6 +175,11 @@
 					TimeLineNColumnChart(data, properties);						
 				}
 			</script>
+				<div id="home_timeline_save_viz"> 
+					<button id='svgButton' class="btn btn-light btn-sm" onclick="saveVisualization('home_timeline', 'overall_timeline.svg');">Save as SVG</button>
+					<button id='pngButton' class="btn btn-light btn-sm" onclick="saveVisualization('home_timeline', 'overall_timeline.pmg');">Save as PNG</button>
+					<button id='jpegButton' class="btn btn-light btn-sm" onclick="saveVisualization('home_timeline', 'overall_timeline.jpg');">Save as JPEG</button>
+				</div>
 			</div>
 			<div id="home_wrapper">
 				<div id="table-div"></div>

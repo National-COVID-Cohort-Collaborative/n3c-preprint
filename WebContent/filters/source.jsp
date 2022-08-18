@@ -3,6 +3,8 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 <div class="panel-body">
+<div class='row'>
+	<div class="col col-4">
 	<h6>Source</h6>
 	<select id="${param.block}-source-select" multiple="multiple">
 		<option value="medrxiv">MedRxiv</option>
@@ -11,6 +13,12 @@
 		<option value="pmc">PMC</option>
 	</select>
 	<button onclick="$('#${param.block}-source-select').multiselect('deselectAll', false); ${param.block}_constrain_table([]);">Clear</button>
+	</div>
+	<div class="col col-8">
+		Click on a legend entry or the dropdown to select a source to focus on. Horizontally click and drag in the graph to select a time range.
+		Double clicking resets to the full time range.
+	</div>
+	</div>
 </div>
 <script type="text/javascript">
 $(document).ready(function() {

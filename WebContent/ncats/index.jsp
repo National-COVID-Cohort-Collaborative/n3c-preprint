@@ -101,6 +101,11 @@
 					TimeLineNColumnChart(data, properties);						
 				}
 			</script>
+				<div id="ncats_timeline_save_viz"> 
+					<button id='svgButton' class="btn btn-light btn-sm" onclick="saveVisualization('ncats_timeline', 'ncats_timeline.svg');">Save as SVG</button>
+					<button id='pngButton' class="btn btn-light btn-sm" onclick="saveVisualization('ncats_timeline', 'ncats_timeline.pmg');">Save as PNG</button>
+					<button id='jpegButton' class="btn btn-light btn-sm" onclick="saveVisualization('ncats_timeline', 'ncats_timeline.jpg');">Save as JPEG</button>
+				</div>
 			</div>
 			<div id="ncats_wrapper">
 				<div id="ncats-div"></div>

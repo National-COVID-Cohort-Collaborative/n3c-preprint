@@ -113,6 +113,11 @@
 					TimeLineNColumnChart(data, properties);						
 				}
 			</script>
+				<div id="pubchem_gene_timeline_save_viz"> 
+					<button id='svgButton' class="btn btn-light btn-sm" onclick="saveVisualization('pubchem_gene_timeline', 'pubchem_gene_timeline.svg');">Save as SVG</button>
+					<button id='pngButton' class="btn btn-light btn-sm" onclick="saveVisualization('pubchem_gene_timeline', 'pubchem_gene_timeline.pmg');">Save as PNG</button>
+					<button id='jpegButton' class="btn btn-light btn-sm" onclick="saveVisualization('pubchem_gene_timeline', 'pubchem_gene_timeline.jpg');">Save as JPEG</button>
+				</div>
 			</div>
 			<div id="pubchem_gene_wrapper">
 				<div id="pubchem_gene-div"></div>

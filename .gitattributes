@@ -53,6 +53,7 @@ WebContent/graph_support/bar_test.jsp -text
 WebContent/graph_support/d3RangeSlider.css -text
 WebContent/graph_support/d3RangeSlider.html -text
 WebContent/graph_support/d3RangeSlider.js -text
+WebContent/graph_support/graphic_save.jsp -text
 WebContent/graph_support/horizontalBarChart.jsp -text
 WebContent/graph_support/line.html -text
 WebContent/graph_support/line.jsp -text

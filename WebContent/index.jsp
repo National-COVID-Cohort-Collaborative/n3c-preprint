@@ -34,6 +34,7 @@ table.dataTable thead .sorting_asc {
 
 <body>
 <jsp:include page="graph_support/time_line_n_column_local.jsp"/>
+<jsp:include page="graph_support/graphic_save.jsp"/>
 
 	<jsp:include page="navbar.jsp" flush="true" />
 

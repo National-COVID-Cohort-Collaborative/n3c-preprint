@@ -1,3 +1,7 @@
+body{
+	font-size: 1.5rem;
+}
+
 .axis { font: 14px sans-serif; }
 
 .line {
@@ -143,3 +147,4 @@
 .panel-footer{
     padding: 0px 15px 0px 15px;
 }
+
